@@ -27,7 +27,7 @@
     "test:watch": "react-scripts test",
     "test": "react-scripts test --watchAll=false",
     "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 6006 -s public",
+    "storybook": "start-storybook -p 3002 -s public",
     "build-storybook": "build-storybook -s public"
   },
   "browserslist": {

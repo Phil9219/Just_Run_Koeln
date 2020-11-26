@@ -6,4 +6,4 @@ export default {
   component: SplashPage,
 };
 
-export const Standard = (args) => <SplashPage {...args} />;
+export const Splashpage = (args) => <SplashPage {...args} />;

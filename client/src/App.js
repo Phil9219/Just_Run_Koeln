@@ -1,12 +1,12 @@
-import "./App.css";
-
 import SplashPage from "../src/components/Page/SplashPage";
+import Header from "./components/Header/Header";
 
 function App() {
   return (
     <div className="App">
-      <a href="/storybook">To Storybook</a>
+      <Header />
       <SplashPage />
+      <a href="/storybook">To Storybook</a>
     </div>
   );
 }

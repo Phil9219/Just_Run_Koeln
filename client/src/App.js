@@ -1,14 +1,11 @@
-import "./App.css";
-import Page from "../src/components/Page/Page";
+import SplashPage from "../src/components/Page/SplashPage";
+import Header from "./components/Header/Header";
 
 function App() {
   return (
     <div className="App">
-      <Page
-        onLogin={() => console.log("login")}
-        onLogout={() => console.log("logout")}
-        onCreateAccount={() => console.log("create account")}
-      />
+      <Header />
+      <SplashPage />
       <a href="/storybook">To Storybook</a>
     </div>
   );

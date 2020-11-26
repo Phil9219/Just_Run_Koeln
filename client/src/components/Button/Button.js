@@ -11,6 +11,7 @@ const Button = styled.button`
   cursor: pointer;
   color: var(--secondary-color);
   font-size: 29px;
+  font-family: "Heiti SC", sans-serif;
 `;
 export const Buttons = ({ title }) => {
   return <Button>{title}</Button>;

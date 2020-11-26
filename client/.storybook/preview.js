@@ -9,7 +9,7 @@ export const decorators = [
     </>
   ),
 ];
-export const parametesr = {
+export const parameters = {
   actions: { argTypesRegex: "^cn[A-Z].*" },
   layout: "fullscreen",
 };

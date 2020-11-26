@@ -1,10 +1,10 @@
-import SplashPage from "../src/components/Page/SplashPage";
-import Header from "./components/Header/Header";
+import SplashPage from "./components/Page/SplashPage";
+import AppHeader from "./components/AppHeader/AppHeader";
 
 function App() {
   return (
     <div className="App">
-      <Header />
+      <AppHeader />
       <SplashPage />
       <a href="/storybook">To Storybook</a>
     </div>

@@ -6,8 +6,3 @@ export default {
 };
 
 export const CalendarDropDown = (args) => <Calendar {...args} />;
-
-// export const Login = Template.bind({});
-// Login.args = {
-//   title: "Login",
-// };

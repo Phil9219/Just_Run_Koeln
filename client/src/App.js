@@ -1,9 +1,8 @@
 import SplashPage from "./components/Page/SplashPage";
 import AppHeader from "./components/AppHeader/AppHeader";
 import GlobalStyle from "./GlobalStyle";
-import { Buttons } from "./components/Button/Button";
+import Button from "./components/Button/Button";
 import React from "react";
-import Calendar from "./components/Calendar/calendar";
 
 function App() {
   return (
@@ -11,8 +10,8 @@ function App() {
       <GlobalStyle />
       <AppHeader />
       <SplashPage />
-      <Buttons />
-      <Calendar />
+      <Button>Hallo Welt</Button>
+
       <a href="/storybook">To Storybook</a>
     </div>
   );

@@ -1,16 +1,17 @@
 import SplashPage from "./components/Page/SplashPage";
 import AppHeader from "./components/AppHeader/AppHeader";
 import GlobalStyle from "./GlobalStyle";
-import { Buttons } from "./components/Button/Button";
-import { Input } from "./components/Input/Input";
+import Button from "./components/Button/Button";
+import React from "react";
+
 function App() {
   return (
     <div className="App">
       <GlobalStyle />
       <AppHeader />
       <SplashPage />
-      <Buttons />
-      <Input />
+      <Button>Hallo Welt</Button>
+
       <a href="/storybook">To Storybook</a>
     </div>
   );

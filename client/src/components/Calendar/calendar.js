@@ -5,6 +5,14 @@ import "react-datepicker/dist/react-datepicker.css";
 export default function Calendar() {
   const [startDate, setStartDate] = useState(new Date());
   return (
-    <DatePicker selected={startDate} onSelect={(date) => setStartDate(date)} />
+    <DatePicker
+      selected={startDate}
+      onChange={(date) => setStartDate(date)}
+      showTimeSelect
+      minDate={new Date()}
+      timeFormat="HH:mm"
+      timeIntervals={15}
+      dateFormat="d MMMM, yyyy HH:mm"
+    />
   );
 }

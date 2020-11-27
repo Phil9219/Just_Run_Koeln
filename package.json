@@ -48,6 +48,7 @@
     "*.{js,css,md}": "prettier --write"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "react-datepicker": "^3.3.0"
   }
 }

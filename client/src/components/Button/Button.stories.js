@@ -1,24 +1,24 @@
 import React from "react";
-import { Buttons } from "./Button";
+import Button from "./Button";
 
 export default {
   title: "Example/Button",
-  component: Buttons,
+  component: Button,
 };
 
-const Template = (args) => <Buttons {...args} />;
+const Template = (args) => <Button {...args} />;
 
 export const Login = Template.bind({});
 Login.args = {
-  title: "Login",
+  children: "Login",
 };
 
 export const CreateAccount = Template.bind({});
 CreateAccount.args = {
-  title: "Create Account",
+  children: "Create Account",
 };
 
 export const CreateRun = Template.bind({});
 CreateRun.args = {
-  title: "Create Run",
+  children: "Create Run",
 };

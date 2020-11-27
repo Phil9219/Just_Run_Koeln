@@ -1,5 +1,5 @@
 import React from "react";
-import { Input } from "./Input";
+import Input from "./Input";
 
 export default {
   title: "Example/Input",
@@ -10,23 +10,28 @@ const Template = (args) => <Input {...args} />;
 
 export const NameYourRun = Template.bind({});
 NameYourRun.args = {
-  title: "Name Your Run",
+  placeholder: "Name Your Run",
+  value: "",
 };
 
 export const ChooseStartAdress = Template.bind({});
 ChooseStartAdress.args = {
-  title: "Choose Start Adress",
+  placeholder: "Choose Start Adress",
+  value: "",
 };
 
 export const ChooseDistance = Template.bind({});
 ChooseDistance.args = {
-  title: "Choose Distance ",
+  placeholder: "Choose Distance ",
+  value: "",
 };
 export const UserName = Template.bind({});
 UserName.args = {
-  title: "Username ",
+  placeholder: "Username ",
+  value: "",
 };
 export const Password = Template.bind({});
 Password.args = {
-  title: "Password ",
+  placeholder: "Password ",
+  value: "",
 };

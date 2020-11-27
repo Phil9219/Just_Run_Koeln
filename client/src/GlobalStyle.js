@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle`
 
   --primary-color: #2b2b2b;
   --secondary-color: #f0eaea;
-
+  --inputfield-color: #9a9797;
 
 
 }

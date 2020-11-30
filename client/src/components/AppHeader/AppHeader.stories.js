@@ -7,4 +7,4 @@ export default {
   component: AppHeader,
 };
 
-export const HeaderLogo = (args) => <AppHeader {...args} />;
+export const Heading = (args) => <AppHeader {...args} />;

@@ -14,7 +14,7 @@ const Button = styled.button`
   border: 2px solid var(--secondary-color);
   cursor: pointer;
 
-  font-size: 29px;
+  font-size: 2rem;
   font-family: "Heiti SC", sans-serif;
   font-weight: 700;
 `;

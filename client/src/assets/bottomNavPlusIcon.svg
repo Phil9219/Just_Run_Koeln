@@ -1,63 +1,64 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="86" height="86" viewBox="0 0 86 86">
-  <defs>
-    <filter id="Rectangle" x="9" y="10" width="68" height="68" filterUnits="userSpaceOnUse">
-      <feOffset dy="2" input="SourceAlpha"/>
-      <feGaussianBlur stdDeviation="2" result="blur"/>
-      <feFlood flood-opacity="0.2"/>
-      <feComposite operator="in" in2="blur"/>
-      <feComposite in="SourceGraphic"/>
-    </filter>
-    <filter id="Rectangle-2" x="0" y="0" width="86" height="86" filterUnits="userSpaceOnUse">
-      <feOffset dy="1" input="SourceAlpha"/>
-      <feGaussianBlur stdDeviation="5" result="blur-2"/>
-      <feFlood flood-opacity="0.122"/>
-      <feComposite operator="in" in2="blur-2"/>
-      <feComposite in="SourceGraphic"/>
-    </filter>
-    <filter id="Rectangle-3" x="7.5" y="10.5" width="71" height="71" filterUnits="userSpaceOnUse">
-      <feOffset dy="4" input="SourceAlpha"/>
-      <feGaussianBlur stdDeviation="2.5" result="blur-3"/>
-      <feFlood flood-opacity="0.141"/>
-      <feComposite operator="in" in2="blur-3"/>
-      <feComposite in="SourceGraphic"/>
-    </filter>
-    <clipPath id="clip-path">
-      <circle id="FAB_Mask" data-name="FAB Mask" cx="28" cy="28" r="28" fill="#f0eaea"/>
-    </clipPath>
-    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
-      <stop offset="0" stop-color="#383232"/>
-      <stop offset="0.966" stop-color="#4a4444"/>
-      <stop offset="1" stop-color="#7a7676"/>
-    </linearGradient>
-  </defs>
-  <g id="Dark_FAB_1._Standard_4_States_" data-name="Dark 🌑 / FAB / 1. Standard (4 States)" transform="translate(15 14)">
-    <g id="Dark_Elevation_00dp_9_States_" data-name="Dark 🌑/Elevation/00dp (9 States)">
-      <g id="Shadow" style="mix-blend-mode: multiply;isolation: isolate">
-        <g transform="matrix(1, 0, 0, 1, -15, -14)" filter="url(#Rectangle)">
-          <rect id="Rectangle-4" data-name="Rectangle" width="56" height="56" rx="28" transform="translate(15 14)" fill="#f0eaea"/>
-        </g>
-        <g transform="matrix(1, 0, 0, 1, -15, -14)" filter="url(#Rectangle-2)">
-          <rect id="Rectangle-5" data-name="Rectangle" width="56" height="56" rx="28" transform="translate(15 14)" fill="#f0eaea"/>
-        </g>
-        <g transform="matrix(1, 0, 0, 1, -15, -14)" filter="url(#Rectangle-3)">
-          <rect id="Rectangle-6" data-name="Rectangle" width="56" height="56" rx="28" transform="translate(15 14)" fill="#f0eaea"/>
-        </g>
-      </g>
-      <rect id="Rectangle-7" data-name="Rectangle" width="56" height="56" rx="28" fill="#f0eaea"/>
-      <rect id="On_Surface" data-name="On Surface" width="56" height="56" rx="28" fill="#f0eaea"/>
-    </g>
-    <g id="Fill" clip-path="url(#clip-path)">
-      <rect id="_FAB_Color" data-name="🎨 FAB Color" width="56" height="56" fill="#f0eaea"/>
-    </g>
-    <g id="State" clip-path="url(#clip-path)">
-      <g id="States_Dark_Primary_containers_On_Primary_Content" data-name="States/Dark 🌑/Primary containers/On Primary Content">
-        <rect id="Primary" width="56" height="56" rx="28" fill="#f0eaea"/>
-        <rect id="States" width="56" height="56" rx="28" fill="#f0eaea"/>
-      </g>
-    </g>
-    <g id="icon_content_add_24px" data-name="icon/content/add_24px" transform="translate(8 8)">
-      <rect id="Boundary" width="40" height="40" fill="none"/>
-      <path id="_Color" data-name=" ↳Color" d="M30,17.143H17.143V30H12.857V17.143H0V12.857H12.857V0h4.286V12.857H30Z" transform="translate(5 5)" fill="url(#linear-gradient)"/>
-    </g>
-  </g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 86 86" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter id="e" x="9" y="10" width="68" height="68" filterUnits="userSpaceOnUse">
+<feOffset dy="2" input="SourceAlpha"/>
+<feGaussianBlur result="blur" stdDeviation="2"/>
+<feFlood flood-opacity=".2"/>
+<feComposite in2="blur" operator="in"/>
+<feComposite in="SourceGraphic"/>
+</filter>
+<filter id="d" x="0" y="0" width="86" height="86" filterUnits="userSpaceOnUse">
+<feOffset dy="1" input="SourceAlpha"/>
+<feGaussianBlur result="blur-2" stdDeviation="5"/>
+<feFlood flood-opacity=".122"/>
+<feComposite in2="blur-2" operator="in"/>
+<feComposite in="SourceGraphic"/>
+</filter>
+<filter id="c" x="7.5" y="10.5" width="71" height="71" filterUnits="userSpaceOnUse">
+<feOffset dy="4" input="SourceAlpha"/>
+<feGaussianBlur result="blur-3" stdDeviation="2.5"/>
+<feFlood flood-opacity=".141"/>
+<feComposite in2="blur-3" operator="in"/>
+<feComposite in="SourceGraphic"/>
+</filter>
+<clipPath id="a">
+<circle cx="28" cy="28" r="28" fill="#f0eaea" data-name="FAB Mask"/>
+</clipPath>
+<linearGradient id="b" x1=".5" x2=".5" y2="1">
+<stop stop-color="#383232" offset="0"/>
+<stop stop-color="#4a4444" offset=".966"/>
+<stop stop-color="#7a7676" offset="1"/>
+</linearGradient>
+</defs>
+<g transform="translate(15 14)" data-name="Dark 🌑 / FAB / 1. Standard (4 States)">
+<g data-name="Dark 🌑/Elevation/00dp (9 States)">
+<g style="isolation:isolate;mix-blend-mode:multiply">
+<g transform="translate(-15 -14)" filter="url(#e)">
+<rect transform="translate(15 14)" width="56" height="56" rx="28" fill="#f0eaea" data-name="Rectangle"/>
+</g>
+<g transform="translate(-15 -14)" filter="url(#d)">
+<rect transform="translate(15 14)" width="56" height="56" rx="28" fill="#f0eaea" data-name="Rectangle"/>
+</g>
+<g transform="translate(-15 -14)" filter="url(#c)">
+<rect transform="translate(15 14)" width="56" height="56" rx="28" fill="#f0eaea" data-name="Rectangle"/>
+</g>
+</g>
+<rect width="56" height="56" rx="28" fill="#f0eaea" data-name="Rectangle"/>
+<rect width="56" height="56" rx="28" fill="#f0eaea" data-name="On Surface"/>
+</g>
+<g clip-path="url(#a)">
+<rect width="56" height="56" fill="#f0eaea" data-name="🎨 FAB Color"/>
+</g>
+<g clip-path="url(#a)">
+<g fill="#f0eaea" data-name="States/Dark 🌑/Primary containers/On Primary Content">
+<rect width="56" height="56" rx="28"/>
+<rect width="56" height="56" rx="28"/>
+</g>
+</g>
+<g transform="translate(8 8)" data-name="icon/content/add_24px">
+<rect width="40" height="40" fill="none"/>
+<path transform="translate(5 5)" d="M30,17.143H17.143V30H12.857V17.143H0V12.857H12.857V0h4.286V12.857H30Z" fill="url(#b)" data-name=" ↳Color"/>
+</g>
+</g>
 </svg>

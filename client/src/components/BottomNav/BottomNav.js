@@ -21,30 +21,35 @@ const BottomNav = styled.div`
   }
 `;
 
-const defaultButton = styled.button`
+const DefaultButton = styled.button`
+  display: flex;
+  justify-items: space-around;
   background: none;
-  height: 24px;
-  width: 24px;
-  padding: 0px;
-`;
-
-const addButton = styled(defaultButton)`
   height: 36px;
   width: 36px;
+  padding: 0px;
+  margin-top: 30px;
+  border: none;
+`;
+
+const AddButton = styled(DefaultButton)`
+  height: 100px;
+  width: 100px;
+  margin-top: -3px;
 `;
 
 const Navbar = () => {
   return (
     <BottomNav>
-      <defaultButton>
+      <DefaultButton>
         <img src={IconCheckHookBottomNav} alt="Icon CheckHook" />
-      </defaultButton>
-      <addButton>
+      </DefaultButton>
+      <AddButton>
         <img src={IconPlusBottomNav} alt="Icon Plus" />
-      </addButton>
-      <defaultButton>
+      </AddButton>
+      <DefaultButton>
         <img src={IconListBottomNav} alt="Icon List" />
-      </defaultButton>
+      </DefaultButton>
     </BottomNav>
   );
 };

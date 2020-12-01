@@ -1,3 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 38.857 32">
-  <path id="Icon_material-view-list" data-name="Icon material-view-list" d="M6,28.071h9.143V18.929H6ZM6,39.5h9.143V30.357H6ZM6,16.643h9.143V7.5H6ZM17.429,28.071H44.857V18.929H17.429Zm0,11.429H44.857V30.357H17.429Zm0-32v9.143H44.857V7.5Z" transform="translate(-6 -7.5)" fill="#f0eaea"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="36" height="36" viewBox="0 0 38.857 32" xmlns="http://www.w3.org/2000/svg">
+<path transform="translate(-6 -7.5)" d="M6,28.071h9.143V18.929H6ZM6,39.5h9.143V30.357H6ZM6,16.643h9.143V7.5H6ZM17.429,28.071H44.857V18.929H17.429Zm0,11.429H44.857V30.357H17.429Zm0-32v9.143H44.857V7.5Z" fill="#f0eaea" data-name="Icon material-view-list"/>
 </svg>

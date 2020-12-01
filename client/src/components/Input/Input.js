@@ -7,7 +7,8 @@ const Input = styled.input`
   background: none;
   color: var(--secondary-color);
   font-family: "Heiti SC", adobe-heiti-std, sans-serif;
-  font-size: 14px;
+  font-size: 15px;
+  font-weight: 700;
   display: flex;
   text-align: center;
 

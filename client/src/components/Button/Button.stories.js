@@ -10,11 +10,12 @@ const Template = (args) => <Button {...args} />;
 
 export const Login = Template.bind({});
 Login.args = {
-  children: "Login",
+  children: "Log In",
 };
 
 export const CreateAccount = Template.bind({});
 CreateAccount.args = {
+  main: true,
   children: "Create Account",
 };
 

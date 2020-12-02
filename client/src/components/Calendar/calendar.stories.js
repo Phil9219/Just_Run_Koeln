@@ -1,7 +1,7 @@
-import Calendar from "./calendar";
+import Calendar from "./Calendar";
 
 export default {
-  title: "Example/Calendar",
+  title: "Components/Calendar",
   component: Calendar,
 };
 

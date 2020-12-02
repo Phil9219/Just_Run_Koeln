@@ -93,7 +93,7 @@ RunCard.propTypes = {
   isFavorite: PropTypes.bool,
   onFavoriteClick: PropTypes.func,
   date: PropTypes.string,
-  time: PropTypes.bool,
-  distance: PropTypes.bool,
+  time: PropTypes.string,
+  distance: PropTypes.string,
 };
 export default RunCard;

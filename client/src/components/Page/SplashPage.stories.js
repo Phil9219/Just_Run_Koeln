@@ -2,7 +2,7 @@ import React from "react";
 import SplashPage from "./SplashPage";
 
 export default {
-  title: "Example/SplashPage",
+  title: "Page/SplashPage",
   component: SplashPage,
 };
 

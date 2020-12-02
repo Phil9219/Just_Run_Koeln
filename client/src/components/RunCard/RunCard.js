@@ -1,5 +1,7 @@
 import styled from "styled-components/macro";
 import CheckHookEmpty from "../../assets/checkHookEmpty.svg";
+import CheckHookFilled from "../../assets/checkHookFilled.svg";
+import PropTypes from "prop-types";
 
 const Container = styled.div`
   display: flex;
@@ -48,8 +50,6 @@ const Container = styled.div`
           width: 100%;
           height: 100%;
         }
-        /* display: flex;
-        align-items: row; */
       }
     }
   }
@@ -64,19 +64,22 @@ const MapContainer = styled.div`
   align-items: center;
 `;
 
-const RunCard = () => {
+const RunCard = ({ isFavorite, onFavoriteClick, date, time, distance }) => {
   return (
     <Container>
       <div>
         <div>
-          <p>01.12.2020</p>
-          <p>18:30</p>
+          <p>{date}</p>
+          <p>{time}</p>
         </div>
 
         <div>
-          <p>10km</p>
-          <button>
-            <img src={CheckHookEmpty} alt="Check Hook" />
+          <p>{distance}</p>
+          <button onClick={onFavoriteClick}>
+            <img
+              src={isFavorite ? CheckHookFilled : CheckHookEmpty}
+              alt="Check Hook"
+            />
           </button>
         </div>
       </div>
@@ -86,4 +89,11 @@ const RunCard = () => {
   );
 };
 
+RunCard.propTypes = {
+  isFavorite: PropTypes.bool,
+  onFavoriteClick: PropTypes.func,
+  date: PropTypes.string,
+  time: PropTypes.string,
+  distance: PropTypes.string,
+};
 export default RunCard;

@@ -71,6 +71,7 @@ export default function App() {
 
   return (
     <div>
+      <Locate panTo={panTo} />
       <Search panTo={panTo} />
 
       <GoogleMap
@@ -106,6 +107,26 @@ export default function App() {
         ) : null}
       </GoogleMap>
     </div>
+  );
+}
+
+function Locate(panTo) {
+  return (
+    <button
+      onClick={() => {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            panTo({
+              lat: position.coords.latitude,
+              lng: position.coords.longitude,
+            });
+          },
+          () => null
+        );
+      }}
+    >
+      🧭
+    </button>
   );
 }
 

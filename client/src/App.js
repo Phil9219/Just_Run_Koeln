@@ -3,12 +3,12 @@ import AppHeader from "./components/AppHeader/AppHeader";
 import GlobalStyle from "./GlobalStyle";
 import Button from "./components/Button/Button";
 import React from "react";
-import { GoogleMap } from "@react-google-maps/api";
+import Map from "./components/Map/Map";
 
 function App() {
   return (
     <div className="App">
-      <GoogleMap />
+      <Map />
       {/* <GlobalStyle />
       <AppHeader />
       <SplashPage />

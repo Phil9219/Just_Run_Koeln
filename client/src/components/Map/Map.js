@@ -7,6 +7,7 @@ import {
 } from "@react-google-maps/api";
 
 import MapStyle from "./MapStyle";
+import { formatRelative } from "date-fns";
 
 const libraries = ["places"];
 const mapContainerStyle = {
@@ -29,6 +30,25 @@ export default function App() {
     libraries,
   });
 
+  const [markers, setMarkers] = React.useState([]);
+  const [selected, setSelected] = React.useState(null);
+
+  const onMapClick = React.useCallback((event) => {
+    setMarkers((current) => [
+      ...current,
+      {
+        lat: event.latLng.lat(),
+        lng: event.latLng.lng(),
+        time: new Date(),
+      },
+    ]);
+  }, []);
+
+  const mapRef = React.useRef();
+  const onMapLoad = React.useCallback((map) => {
+    mapRef.current = map;
+  }, []);
+
   if (loadError) return "Error loading maps";
   if (!isLoaded) return "Loading Maps";
 
@@ -39,7 +59,33 @@ export default function App() {
         zoom={8}
         center={center}
         options={options}
-      ></GoogleMap>
+        onClick={onMapClick}
+        onLoad={onMapLoad}
+      >
+        {markers.map((marker) => (
+          <Marker
+            key={marker.time.toISOString()}
+            position={{ lat: marker.lat, lng: marker.lng }}
+            onClick={() => {
+              setSelected(marker);
+            }}
+          />
+        ))}
+
+        {selected ? (
+          <InfoWindow
+            position={{ lat: selected.lat, lng: selected.lng }}
+            onCloseClick={() => {
+              setSelected(null);
+            }}
+          >
+            <div>
+              <h2>Run Start</h2>
+              <p>Be Ready At {formatRelative(selected.time, new Date())}</p>
+            </div>
+          </InfoWindow>
+        ) : null}
+      </GoogleMap>
     </div>
   );
 }

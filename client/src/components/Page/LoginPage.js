@@ -45,9 +45,6 @@ const LoginButton = styled.button`
     height: 40px;
     width: 80%;
   }
-  input {
-    background-color: red;
-  }
 `;
 
 const CreateAccountButton = styled.button`

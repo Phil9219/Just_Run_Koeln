@@ -22,18 +22,3 @@ NotFavorite.args = {
   time: "18:30",
   distance: "10km",
 };
-
-// export const Date = Template.bind({});
-// Date.args = {
-//   date: "06.12.2020",
-// };
-
-// export const Time = Template.bind({});
-// Time.args = {
-//   time: "18:30",
-// };
-
-// export const Distance = Template.bind({});
-// Distance.args = {
-//   distance: "10km",
-// };

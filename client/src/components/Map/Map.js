@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import {
   GoogleMap,
@@ -92,7 +93,7 @@ export default function Map() {
           />
         ))}
 
-        {selected ? (
+        {selected && (
           <InfoWindow
             position={{ lat: selected.lat, lng: selected.lng }}
             onCloseClick={() => {
@@ -104,13 +105,17 @@ export default function Map() {
               <p>Be Ready At {formatRelative(selected.time, new Date())}</p>
             </div>
           </InfoWindow>
-        ) : null}
+        )}
       </GoogleMap>
     </div>
   );
 }
 
-function Locate(panTo) {
+Locate.propTypes = {
+  panTo: PropTypes.string.isRequired,
+};
+
+function Locate({ panTo }) {
   return (
     <button
       onClick={() => {
@@ -130,7 +135,11 @@ function Locate(panTo) {
   );
 }
 
-function Search(panTo) {
+Search.propTypes = {
+  panTo: PropTypes.string.isRequired,
+};
+
+function Search({ panTo }) {
   const {
     ready,
     value,

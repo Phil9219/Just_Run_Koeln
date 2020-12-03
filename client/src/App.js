@@ -9,12 +9,6 @@ function App() {
   return (
     <div className="App">
       <Map />
-      {/* <GlobalStyle />
-      <AppHeader />
-      <SplashPage />
-      <Button>Hallo Welt</Button>
-
-      <a href="/storybook">To Storybook</a> */}
     </div>
   );
 }

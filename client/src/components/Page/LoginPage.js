@@ -15,13 +15,45 @@ const Logo = styled.div`
   }
 `;
 
-const UserNameInput = styled.div``;
+const UserNameInput = styled.div`
+  display: flex;
+  justify-content: center;
+  align-content: flex-start;
+  Input {
+    height: 40px;
+    width: 80%;
+    margin: 10px 15px;
+  }
+`;
 
-const PasswordInput = styled.div``;
+const PasswordInput = styled.div`
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  Input {
+    height: 40px;
+    width: 80%;
+    margin: 10px 15px;
+  }
+`;
 
-const LoginButton = styled.button``;
+const LoginButton = styled.button`
+  display: flex;
+  justify-content: center;
+  padding: 0px;
+  Button {
+    height: 40px;
+    width: 80%;
+  }
+  input {
+    background-color: red;
+  }
+`;
 
-const CreateAccountButton = styled.button``;
+const CreateAccountButton = styled.button`
+  display: flex;
+  justify-content: center;
+`;
 
 export default function LoginPage() {
   return (
@@ -29,6 +61,7 @@ export default function LoginPage() {
       <Logo>
         <img src={Splashlogo} alt="Just Run Köln" />
       </Logo>
+
       <UserNameInput>
         <Input />
       </UserNameInput>
@@ -36,7 +69,7 @@ export default function LoginPage() {
         <Input />
       </PasswordInput>
       <LoginButton>
-        <Button />
+        <Button>Log In</Button>
       </LoginButton>
       <CreateAccountButton>
         <Button />

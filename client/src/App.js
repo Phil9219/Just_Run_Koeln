@@ -1,15 +1,16 @@
-import SplashPage from "./components/Page/SplashPage";
-import AppHeader from "./components/AppHeader/AppHeader";
-import GlobalStyle from "./GlobalStyle";
-import Button from "./components/Button/Button";
 import React from "react";
-import Map from "./components/Map/Map";
+import LoginPage from "../src/components/Page/LoginPage";
+import GlobalStyle from "./GlobalStyle";
+import Datepicker from "../src/components/Calendar/Calendar";
 
 function App() {
   return (
-    <div className="App">
-      <Map />
-    </div>
+    <>
+      <GlobalStyle />
+      <div>
+        <LoginPage />
+      </div>
+    </>
   );
 }
 

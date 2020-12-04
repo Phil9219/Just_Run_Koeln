@@ -74,7 +74,7 @@ const RunCard = ({ isFavorite, onFavoriteClick, date, time, distance }) => {
         </div>
 
         <div>
-          <p>{distance}</p>
+          <p>{distance}km</p>
           <button onClick={onFavoriteClick}>
             <img
               src={isFavorite ? CheckHookFilled : CheckHookEmpty}
@@ -92,8 +92,8 @@ const RunCard = ({ isFavorite, onFavoriteClick, date, time, distance }) => {
 RunCard.propTypes = {
   isFavorite: PropTypes.bool,
   onFavoriteClick: PropTypes.func,
-  date: PropTypes.string,
-  time: PropTypes.string,
-  distance: PropTypes.string,
+  date: PropTypes.number.isRequired,
+  time: PropTypes.number.isRequired,
+  distance: PropTypes.number.isRequired,
 };
 export default RunCard;

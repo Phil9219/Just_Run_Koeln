@@ -6,8 +6,8 @@ import IconCheckHookBottomNav from "../../assets/bottomNavCheckHookIcon.svg";
 const BottomNav = styled.div`
   min-height: 80px;
   width: 100vw;
-  position: fixed;
-  bottom: 0;
+  /* position: fixed;
+  bottom: 0; */
   left: 0;
   border-top: 2px solid var(--secondary-color);
   display: flex;

@@ -3,14 +3,15 @@ import React from "react";
 import GlobalStyle from "./GlobalStyle";
 // import Datepicker from "../src/components/Calendar/Calendar";
 // import ChooseYourRunPage from "../src/components/Page/ChooseYourRunPage";
-import CreateRunPage from "./components/Page/CreateRunPage";
+// import CreatedRunPage from "./components/Page/CreatedRunPage";
+import RunsDonePage from "./components/Page/RunsDonePage";
 
 function App() {
   return (
     <>
       <GlobalStyle />
       <div>
-        <CreateRunPage />
+        <RunsDonePage />
       </div>
     </>
   );

@@ -1,18 +1,18 @@
 import React from "react";
 import styled from "styled-components/macro";
 
-import AppHeader from "../../components/AppHeader/AppHeader";
+import AppHeader from "../AppHeader/AppHeader";
 // import BottomNav from "../../components/BottomNav/BottomNav";
-import BigRunCard from "../../components/RunCard/BigRunCard";
+import BigRunCard from "../RunCard/BigRunCard";
 
-const CreateRunPageContainer = styled.div`
+const CreatedRunPageContainer = styled.div`
   width: 100%;
   height: 100%;
 `;
 
-export default function CreateRunPage() {
+export default function CreatedRunPage() {
   return (
-    <CreateRunPageContainer>
+    <CreatedRunPageContainer>
       <AppHeader title={"Choose Your Run"} />
       <BigRunCard
         date={"44.44.444"}
@@ -20,6 +20,6 @@ export default function CreateRunPage() {
         distance={"10"}
         isFavorite={true}
       ></BigRunCard>
-    </CreateRunPageContainer>
+    </CreatedRunPageContainer>
   );
 }

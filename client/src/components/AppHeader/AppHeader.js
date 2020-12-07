@@ -2,12 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import LogoHeader from "../../../src/assets/header_logo_JRK.svg";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const AppHeader = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
 
   border-bottom: 2px solid var(--secondary-color);
   margin-bottom: 15px;
@@ -32,7 +32,9 @@ const AppHeader = styled.div`
 
 const Header = ({ title }) => (
   <AppHeader>
-    <img src={LogoHeader} alt="Just Run Köln" />
+    <Link to="/choose your run">
+      <img src={LogoHeader} alt="Just Run Köln" />
+    </Link>
     <h1>{title}</h1>
   </AppHeader>
 );

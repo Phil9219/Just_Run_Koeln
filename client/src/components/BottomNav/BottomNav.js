@@ -2,6 +2,7 @@ import styled from "styled-components/macro";
 import IconPlusBottomNav from "../../assets/bottomNavPlusIcon.svg";
 import IconListBottomNav from "../../assets/bottomNavListIcon.svg";
 import IconCheckHookBottomNav from "../../assets/bottomNavCheckHookIcon.svg";
+import { Link } from "react-router-dom";
 
 const BottomNav = styled.div`
   min-height: 80px;
@@ -21,7 +22,7 @@ const BottomNav = styled.div`
   }
 `;
 
-const DefaultButton = styled.button`
+const DefaultButton = styled(Link)`
   display: flex;
   justify-items: space-around;
   background: none;
@@ -41,13 +42,13 @@ const AddButton = styled(DefaultButton)`
 const Navbar = () => {
   return (
     <BottomNav>
-      <DefaultButton>
+      <DefaultButton to="/runs done">
         <img src={IconCheckHookBottomNav} alt="Icon CheckHook" />
       </DefaultButton>
-      <AddButton>
+      <AddButton to="/setup run">
         <img src={IconPlusBottomNav} alt="Icon Plus" />
       </AddButton>
-      <DefaultButton>
+      <DefaultButton to="/choose your run">
         <img src={IconListBottomNav} alt="Icon List" />
       </DefaultButton>
     </BottomNav>

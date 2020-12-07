@@ -32,7 +32,7 @@ const AppHeader = styled.div`
 
 const Header = ({ title }) => (
   <AppHeader>
-    <Link to="/choose your run">
+    <Link to="/choose_your_run">
       <img src={LogoHeader} alt="Just Run Köln" />
     </Link>
     <h1>{title}</h1>

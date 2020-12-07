@@ -48,7 +48,7 @@ export default function RunSetupPage() {
           <Input placeholder="Choose Your Distance" />
           <Input placeholder="Name Your Run" />
         </InputfieldsContainer>
-        <Link to="/created run" label="create">
+        <Link to="/created_run" label="create">
           <Button>Create Run</Button>
         </Link>
       </RunSetupContainer>

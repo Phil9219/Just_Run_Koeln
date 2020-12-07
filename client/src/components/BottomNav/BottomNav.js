@@ -42,13 +42,13 @@ const AddButton = styled(DefaultButton)`
 const Navbar = () => {
   return (
     <BottomNav>
-      <DefaultButton to="/runs done">
+      <DefaultButton to="/runs_done">
         <img src={IconCheckHookBottomNav} alt="Icon CheckHook" />
       </DefaultButton>
-      <AddButton to="/setup run">
+      <AddButton to="/setup_run">
         <img src={IconPlusBottomNav} alt="Icon Plus" />
       </AddButton>
-      <DefaultButton to="/choose your run">
+      <DefaultButton to="/choose_your_run">
         <img src={IconListBottomNav} alt="Icon List" />
       </DefaultButton>
     </BottomNav>

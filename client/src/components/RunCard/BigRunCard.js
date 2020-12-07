@@ -81,7 +81,7 @@ const BigRunCard = ({ isFavorite, onFavoriteClick, date, time, distance }) => {
 
         <div>
           <p>{distance}km</p>
-          <Link to="/runs done" label="runs done">
+          <Link to="/runs_done" label="runs done">
             <button onClick={onFavoriteClick}>
               <img
                 src={isFavorite ? CheckHookFilled : CheckHookEmpty}

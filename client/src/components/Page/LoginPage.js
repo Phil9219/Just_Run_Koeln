@@ -68,6 +68,10 @@ const ButtonContainer = styled.div`
   gap: 20px;
   padding: 15px;
 
+  a {
+    width: 100%;
+  }
+
   Button:nth-child(1) {
     background-color: var(--secondary-color);
     color: var(--primary-color);
@@ -75,6 +79,7 @@ const ButtonContainer = styled.div`
 
   Button {
     font-size: 1rem;
+    width: 100%;
   }
 `;
 
@@ -95,7 +100,6 @@ export default function LoginPage() {
             <Input></Input>
           </InputContainer>
         </InputfieldsContainer>
-
         <ButtonContainer>
           <Link to="/choose your run" label="choose your run">
             <Button>Log In</Button>

@@ -17,6 +17,10 @@ const ScrollContainer = styled.div`
   overflow-x: auto;
   margin: 0 15px;
   gap: 15px;
+
+  a {
+    text-decoration: none;
+  }
 `;
 export default function ChooseYourRunPage() {
   return (

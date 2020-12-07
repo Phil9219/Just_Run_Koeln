@@ -2,7 +2,7 @@ import styled from "styled-components/macro";
 import CheckHookEmpty from "../../assets/checkHookEmpty.svg";
 import CheckHookFilled from "../../assets/checkHookFilled.svg";
 import PropTypes from "prop-types";
-
+import { Link } from "react-router-dom";
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -75,12 +75,14 @@ const RunCard = ({ isFavorite, onFavoriteClick, date, time, distance }) => {
 
         <div>
           <p>{distance}km</p>
-          <button onClick={onFavoriteClick}>
-            <img
-              src={isFavorite ? CheckHookFilled : CheckHookEmpty}
-              alt="Check Hook"
-            />
-          </button>
+          <Link to="/runs_done" label="runs done">
+            <button onClick={onFavoriteClick}>
+              <img
+                src={isFavorite ? CheckHookFilled : CheckHookEmpty}
+                alt="Check Hook"
+              />
+            </button>
+          </Link>
         </div>
       </div>
 

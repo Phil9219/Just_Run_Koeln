@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const Button = styled.button`
   height: 40px;
-  width: 90%;
+  margin: 0 15px;
   border-radius: 15px;
   background: ${(props) =>
     props.main ? "var(--secondary-color)" : "var(--primary-color)"};

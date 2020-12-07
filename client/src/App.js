@@ -4,14 +4,15 @@ import GlobalStyle from "./GlobalStyle";
 // import Datepicker from "../src/components/Calendar/Calendar";
 // import ChooseYourRunPage from "../src/components/Page/ChooseYourRunPage";
 // import CreatedRunPage from "./components/Page/CreatedRunPage";
-import RunsDonePage from "./components/Page/RunsDonePage";
+// import RunsDonePage from "./components/Page/RunsDonePage";
+import RunSetupPage from "./components/Page/RunSetupPage";
 
 function App() {
   return (
     <>
       <GlobalStyle />
       <div>
-        <RunsDonePage />
+        <RunSetupPage />
       </div>
     </>
   );

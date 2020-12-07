@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+// import "react-datepicker/dist/react-datepicker.css";
 import styled from "styled-components/macro";
-
+import "./Calendar.css";
 const StyledDatePicker = styled(DatePicker)`
   height: 40px;
   width: 100%;

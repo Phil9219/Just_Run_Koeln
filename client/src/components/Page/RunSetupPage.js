@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components/macro";
 import AppHeader from "../AppHeader/AppHeader";
 import Input from "../Input/Input";
-import Calendar from "../Calendar/calendar";
+import Calendar from "../Calendar/Calendar";
 import Map from "../Map/Map";
 import Button from "../Button/Button";
 

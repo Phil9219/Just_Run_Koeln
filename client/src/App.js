@@ -1,15 +1,20 @@
-import SplashPage from "./components/Page/SplashPage";
-import AppHeader from "./components/AppHeader/AppHeader";
-import GlobalStyle from "./GlobalStyle";
-import Button from "./components/Button/Button";
 import React from "react";
-import Map from "./components/Map/Map";
+// import LoginPage from "../src/components/Page/LoginPage";
+import GlobalStyle from "./GlobalStyle";
+// import Datepicker from "../src/components/Calendar/Calendar";
+// import ChooseYourRunPage from "../src/components/Page/ChooseYourRunPage";
+// import CreatedRunPage from "./components/Page/CreatedRunPage";
+// import RunsDonePage from "./components/Page/RunsDonePage";
+import RunSetupPage from "./components/Page/RunSetupPage";
 
 function App() {
   return (
-    <div className="App">
-      <Map />
-    </div>
+    <>
+      <GlobalStyle />
+      <div>
+        <RunSetupPage />
+      </div>
+    </>
   );
 }
 

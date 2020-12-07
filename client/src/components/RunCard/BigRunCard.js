@@ -4,27 +4,33 @@ import CheckHookFilled from "../../assets/checkHookFilled.svg";
 import PropTypes from "prop-types";
 
 const Container = styled.div`
+  height: 600px;
+  width: 90%;
   display: flex;
   flex-direction: column;
+
   gap: 16px;
 
-  width: 100%;
   padding: 16px;
   border-radius: 15px;
   border: 2px solid var(--secondary-color);
   color: var(--secondary-color);
   font-weight: 600;
 
+  background-color: purple;
+
   div {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    background-color: red;
+
     gap: 16px;
 
     div {
       flex-direction: column;
       align-items: flex-start;
       gap: 5px;
+      background-color: green;
 
       p {
         margin: 0;
@@ -64,7 +70,7 @@ const MapContainer = styled.div`
   align-items: center;
 `;
 
-const RunCard = ({ isFavorite, onFavoriteClick, date, time, distance }) => {
+const BigRunCard = ({ isFavorite, onFavoriteClick, date, time, distance }) => {
   return (
     <Container>
       <div>
@@ -89,11 +95,11 @@ const RunCard = ({ isFavorite, onFavoriteClick, date, time, distance }) => {
   );
 };
 
-RunCard.propTypes = {
+BigRunCard.propTypes = {
   isFavorite: PropTypes.bool,
   onFavoriteClick: PropTypes.func,
   date: PropTypes.number.isRequired,
   time: PropTypes.number.isRequired,
   distance: PropTypes.number.isRequired,
 };
-export default RunCard;
+export default BigRunCard;

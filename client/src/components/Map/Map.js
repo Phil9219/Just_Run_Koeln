@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-
+import styled from "styled-components/macro";
 import {
   GoogleMap,
   useLoadScript,
@@ -67,17 +67,47 @@ export default function Map() {
     mapRef.current.setZoom(14);
   }, []);
 
+  const MapHeader = styled.div`
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    input:nth-child(1) {
+      background: none;
+
+      border: solid 2px var(--secondary-color);
+      background: none;
+      color: var(--secondary-color);
+      font-family: "Heiti SC", adobe-heiti-std, sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      display: flex;
+      text-align: center;
+
+      ::placeholder {
+        color: var(--inputfield-color);
+      }
+    }
+
+    button:nth-child(2) {
+      background: none;
+      border: none;
+    }
+  `;
+
   if (loadError) return "Error loading maps";
   if (!isLoaded) return "Loading Maps";
 
   return (
     <div>
-      <Locate panTo={panTo} />
-      <Search panTo={panTo} />
+      <MapHeader>
+        <Search panTo={panTo} />
+        <Locate panTo={panTo} />
+      </MapHeader>
 
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
-        zoom={8}
+        zoom={12}
         center={center}
         options={options}
         onClick={onMapClick}

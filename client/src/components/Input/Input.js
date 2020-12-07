@@ -2,7 +2,7 @@ import styled from "styled-components/macro";
 
 const Input = styled.input`
   height: 40px;
-  width: 330px;
+  width: 100%;
   border: solid 2px var(--secondary-color);
   background: none;
   color: var(--secondary-color);

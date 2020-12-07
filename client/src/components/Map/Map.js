@@ -22,6 +22,34 @@ import {
 } from "@reach/combobox";
 import { formatRelative } from "date-fns";
 
+const MapHeader = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  input:nth-child(1) {
+    background: none;
+
+    border: solid 2px var(--secondary-color);
+    background: none;
+    color: var(--secondary-color);
+    font-family: "Heiti SC", adobe-heiti-std, sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    display: flex;
+    text-align: center;
+
+    ::placeholder {
+      color: var(--inputfield-color);
+    }
+  }
+
+  button:nth-child(2) {
+    background: none;
+    border: none;
+  }
+`;
+
 const libraries = ["places"];
 const mapContainerStyle = {
   width: "100vw",
@@ -66,34 +94,6 @@ export default function Map() {
     mapRef.current.panTo({ lat, lng });
     mapRef.current.setZoom(14);
   }, []);
-
-  const MapHeader = styled.div`
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-
-    input:nth-child(1) {
-      background: none;
-
-      border: solid 2px var(--secondary-color);
-      background: none;
-      color: var(--secondary-color);
-      font-family: "Heiti SC", adobe-heiti-std, sans-serif;
-      font-size: 1rem;
-      font-weight: 700;
-      display: flex;
-      text-align: center;
-
-      ::placeholder {
-        color: var(--inputfield-color);
-      }
-    }
-
-    button:nth-child(2) {
-      background: none;
-      border: none;
-    }
-  `;
 
   if (loadError) return "Error loading maps";
   if (!isLoaded) return "Loading Maps";

@@ -3,7 +3,7 @@ import styled from "styled-components/macro";
 import Button from "../../components/Button/Button";
 import Input from "../../components/Input/Input";
 import Splashlogo from "../../assets/logo_JRK.svg";
-
+import { Link } from "react-router-dom";
 const LoginPageContainer = styled.div`
   display: grid;
   grid-template-rows: 1fr 1fr;
@@ -97,7 +97,9 @@ export default function LoginPage() {
         </InputfieldsContainer>
 
         <ButtonContainer>
-          <Button>Log In</Button>
+          <Link to="/choose your run" label="choose your run">
+            <Button>Log In</Button>
+          </Link>
           <Button>Create Account</Button>
         </ButtonContainer>
       </Formular>

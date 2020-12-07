@@ -5,6 +5,7 @@ import Input from "../Input/Input";
 import Calendar from "../Calendar/Calendar";
 import Map from "../Map/Map";
 import Button from "../Button/Button";
+import BottomNav from "../../components/BottomNav/BottomNav";
 import { Link } from "react-router-dom";
 
 const RunSetupContainer = styled.div`
@@ -51,6 +52,7 @@ export default function RunSetupPage() {
           <Button>Create Run</Button>
         </Link>
       </RunSetupContainer>
+      <BottomNav />
     </>
   );
 }

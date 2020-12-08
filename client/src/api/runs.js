@@ -1,4 +1,5 @@
 export async function getRuns() {
-  const runs = await fetch("http://localhost:5000/runs");
+  const response = await fetch("http://localhost:5000/runs");
+  const runs = response.json();
   return runs;
 }

@@ -3,3 +3,8 @@ export async function getRuns() {
   const runs = response.json();
   return runs;
 }
+export async function getRunsById(id) {
+  const response = await fetch(`http://localhost:5000/runs/${id}`);
+  const runs = response.json();
+  return runs;
+}

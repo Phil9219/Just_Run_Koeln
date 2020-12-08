@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import GlobalStyle from "./GlobalStyle";
 import SplashPage from "./components/Page/SplashPage";
 import LoginPage from "./components/Page/LoginPage";
@@ -9,6 +9,12 @@ import RunSetupPage from "./components/Page/RunSetupPage";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
+  const [page, setPage] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => setPage(false), 4000);
+  }, []);
+
   return (
     <>
       <Router>
@@ -16,11 +22,13 @@ function App() {
 
         <Switch>
           <Route exact path="/splash">
-            <SplashPage />
+            {page ? <SplashPage /> : <LoginPage />}
+          </Route>
+          {/* <SplashPage />
           </Route>
           <Route path="/login">
             <LoginPage />
-          </Route>
+          </Route> */}
           <Route path="/choose_your_run">
             <ChooseYourRunPage />
           </Route>

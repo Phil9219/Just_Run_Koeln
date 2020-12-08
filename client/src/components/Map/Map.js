@@ -49,11 +49,17 @@ const MapHeader = styled.div`
     border: none;
   }
 `;
+const InfoBubble = styled.div`
+  color: var(--primary-color);
+  .p {
+    color: var(--primary-color);
+  }
+`;
 
 const libraries = ["places"];
 const mapContainerStyle = {
-  width: "100vw",
-  height: "100vh",
+  width: "100%",
+  height: "100%",
 };
 const center = {
   lat: 50.937531,
@@ -99,11 +105,11 @@ export default function Map() {
   if (!isLoaded) return "Loading Maps";
 
   return (
-    <div>
-      <MapHeader>
+    <>
+      {/* <MapHeader>
         <Search panTo={panTo} />
         <Locate panTo={panTo} />
-      </MapHeader>
+      </MapHeader> */}
 
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
@@ -130,14 +136,14 @@ export default function Map() {
               setSelected(null);
             }}
           >
-            <div>
+            <InfoBubble>
               <h2>Run Start</h2>
               <p>Be Ready At {formatRelative(selected.time, new Date())}</p>
-            </div>
+            </InfoBubble>
           </InfoWindow>
         )}
       </GoogleMap>
-    </div>
+    </>
   );
 }
 

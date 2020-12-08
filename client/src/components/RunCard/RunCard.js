@@ -3,13 +3,16 @@ import CheckHookEmpty from "../../assets/checkHookEmpty.svg";
 import CheckHookFilled from "../../assets/checkHookFilled.svg";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import Map from "../Map/Map";
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 16px;
-
+  gap: 8px;
   width: 100%;
+  height: 350px;
   padding: 16px;
+  margin-bottom: 16px;
   border-radius: 15px;
   border: 2px solid var(--secondary-color);
   color: var(--secondary-color);
@@ -29,6 +32,7 @@ const Container = styled.div`
       p {
         margin: 0;
         padding: 0;
+        color: var(--secondary-color);
       }
     }
     div:nth-child(2) {
@@ -61,7 +65,7 @@ const Container = styled.div`
 `;
 
 const MapContainer = styled.div`
-  height: 100px;
+  height: 250px;
   width: 100%;
   border-radius: 5px;
   border: 2px solid var(--secondary-color);
@@ -80,13 +84,16 @@ const RunCard = ({
   return (
     <Container>
       <div>
+        <Link to="/created_run">
+          <div>
+            <p>{date}</p>
+            <p>{time}</p>
+          </div>
+        </Link>
         <div>
-          <p>{date}</p>
-          <p>{time}</p>
-        </div>
-
-        <div>
-          <p>{distance}km</p>
+          <Link to="/created_run">
+            <p>{distance}km</p>
+          </Link>
           <Link to="/runs_done" label="runs done">
             <button onClick={onFavoriteClick}>
               <img
@@ -98,7 +105,10 @@ const RunCard = ({
         </div>
       </div>
       <p>{runName}</p>
-      <MapContainer></MapContainer>
+
+      <MapContainer>
+        <Map />
+      </MapContainer>
     </Container>
   );
 };

@@ -101,7 +101,7 @@ export default function LoginPage() {
           </InputContainer>
         </InputfieldsContainer>
         <ButtonContainer>
-          <Link to="/choose your run" label="choose your run">
+          <Link to="/choose_your_run" label="choose your run">
             <Button>Log In</Button>
           </Link>
           <Button>Create Account</Button>

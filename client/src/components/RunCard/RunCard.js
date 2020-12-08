@@ -53,6 +53,11 @@ const Container = styled.div`
       }
     }
   }
+  p {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+  }
 `;
 
 const MapContainer = styled.div`
@@ -64,7 +69,14 @@ const MapContainer = styled.div`
   align-items: center;
 `;
 
-const RunCard = ({ isFavorite, onFavoriteClick, date, time, distance }) => {
+const RunCard = ({
+  isFavorite,
+  onFavoriteClick,
+  date,
+  time,
+  distance,
+  runName,
+}) => {
   return (
     <Container>
       <div>
@@ -85,7 +97,7 @@ const RunCard = ({ isFavorite, onFavoriteClick, date, time, distance }) => {
           </Link>
         </div>
       </div>
-
+      <p>{runName}</p>
       <MapContainer></MapContainer>
     </Container>
   );
@@ -97,5 +109,6 @@ RunCard.propTypes = {
   date: PropTypes.number.isRequired,
   time: PropTypes.number.isRequired,
   distance: PropTypes.number.isRequired,
+  runName: PropTypes.string.isRequired,
 };
 export default RunCard;

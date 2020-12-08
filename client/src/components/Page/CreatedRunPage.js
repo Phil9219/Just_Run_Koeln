@@ -12,12 +12,13 @@ export default function CreatedRunPage() {
   return (
     <>
       <CreatedRunPageContainer>
-        <AppHeader title={"Choose Your Run"} />
+        <AppHeader title={"Run"} />
         <BigRunCard
           date={"44.44.444"}
           time={"14:44"}
           distance={"10"}
           isFavorite={true}
+          runName={"Grüngürtel"}
         ></BigRunCard>
       </CreatedRunPageContainer>
       <BottomNav />

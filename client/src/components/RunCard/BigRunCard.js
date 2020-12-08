@@ -59,6 +59,11 @@ const Container = styled.div`
       }
     }
   }
+  p {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+  }
 `;
 
 const MapContainer = styled.div`
@@ -70,7 +75,14 @@ const MapContainer = styled.div`
   align-items: center;
 `;
 
-const BigRunCard = ({ isFavorite, onFavoriteClick, date, time, distance }) => {
+const BigRunCard = ({
+  isFavorite,
+  onFavoriteClick,
+  date,
+  time,
+  distance,
+  runName,
+}) => {
   return (
     <Container>
       <div>
@@ -91,7 +103,7 @@ const BigRunCard = ({ isFavorite, onFavoriteClick, date, time, distance }) => {
           </Link>
         </div>
       </div>
-
+      <p>{runName}</p>
       <MapContainer></MapContainer>
     </Container>
   );
@@ -103,5 +115,6 @@ BigRunCard.propTypes = {
   date: PropTypes.number.isRequired,
   time: PropTypes.number.isRequired,
   distance: PropTypes.number.isRequired,
+  runName: PropTypes.string.isRequired,
 };
 export default BigRunCard;

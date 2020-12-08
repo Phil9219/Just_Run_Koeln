@@ -11,11 +11,15 @@ const Logo = styled.div`
     height: 20vh;
     width: 80vw;
   }
+  .blurr {
+    opacity: 1;
+    transition: opacity 0.7s;
+  }
 `;
 export default function SplashPage() {
   return (
     <Logo>
-      <img src={Splashlogo} alt="Just Run Köln" />
+      <img src={Splashlogo} className="blurr" alt="Just Run Köln" />
     </Logo>
   );
 }

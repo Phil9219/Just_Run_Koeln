@@ -32,6 +32,7 @@ export default function RunsDonePage() {
               time={"14:44"}
               distance={"10"}
               isFavorite={true}
+              onFavoriteClick={() => alert("click")}
             ></RunCard>
             <RunCard
               date={"44.44.444"}

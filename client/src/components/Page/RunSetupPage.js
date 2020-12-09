@@ -10,15 +10,15 @@ import { Link } from "react-router-dom";
 
 const RunSetupContainer = styled.div`
   height: 100vh;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   padding: 15px;
+  margin-top: 30%;
+  margin-bottom: 30%;
+  z-index: -10;
 
   button:nth-child(1) {
-    display: flex;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
     background-color: var(--secondary-color);
     color: var(--primary-color);
     margin: 0 30px 0 90px;
@@ -49,7 +49,7 @@ export default function RunSetupPage() {
           <Input placeholder="Choose Your Kilometers" />
           <Input placeholder="Name Your Run" />
         </InputfieldsContainer>
-        <Link to="/created_run" label="create">
+        <Link to="/created_run">
           <Button>Create Run</Button>
         </Link>
       </RunSetupContainer>

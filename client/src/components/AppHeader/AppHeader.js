@@ -4,17 +4,18 @@ import LogoHeader from "../../../src/assets/header_logo_JRK.svg";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-const AppHeader = styled.div`
+const AppHeader = styled.header`
   width: 100%;
   display: flex;
   justify-content: space-between;
-
   border-bottom: 2px solid var(--secondary-color);
-  margin-bottom: 15px;
+  position: fixed;
+  top: 0;
+  background-color: var(--primary-color);
+  z-index: 20;
 
   img {
     height: 55px;
-
     vertical-align: top;
     margin: 17px 0px 5px 15px;
   }
@@ -25,7 +26,6 @@ const AppHeader = styled.div`
     color: var(--secondary-color);
     display: flex;
     justify-content: center;
-
     font-size: 1.5rem;
   }
 `;

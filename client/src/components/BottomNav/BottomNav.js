@@ -16,6 +16,7 @@ const Footer = styled.footer`
   justify-content: space-around;
   padding: 0 16px;
   background-color: var(--primary-color);
+  z-index: 10;
 
   img {
     object-fit: contain;

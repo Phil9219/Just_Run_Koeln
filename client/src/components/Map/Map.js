@@ -51,9 +51,6 @@ const MapHeader = styled.div`
 `;
 const InfoBubble = styled.div`
   color: var(--primary-color);
-  .p {
-    color: var(--primary-color);
-  }
 `;
 
 const libraries = ["places"];

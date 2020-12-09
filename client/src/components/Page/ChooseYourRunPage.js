@@ -34,7 +34,7 @@ export default function ChooseYourRunPage() {
             distance={"10"}
             isFavorite={true}
             runName={"Severin Brücke Run"}
-          ></RunCard>
+          />
           <RunCard
             date={"44.44.444"}
             time={"14:44"}

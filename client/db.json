@@ -1,0 +1,25 @@
+{
+  "runs": [
+    {
+      "runName": "Grüngürtel Run",
+      "id": 1,
+      "date": "24.12.2020",
+      "time": "10:30",
+      "distance": "10"
+    },
+    {
+      "runName": "Dom Run",
+      "id": 2,
+      "date": "25.12.2020",
+      "time": "17:30",
+      "distance": "5"
+    },
+    {
+      "runName": "Severin Run",
+      "id": 3,
+      "date": "26.12.2020",
+      "time": "13:30",
+      "distance": "7,5"
+    }
+  ]
+}

@@ -30,7 +30,7 @@ function App() {
           <Route path="/setup_run">
             <RunSetupPage />
           </Route>
-          <Route path="/created_run">
+          <Route path="/runs/:id">
             <CreatedRunPage />
           </Route>
           <Route path="/runs_done">

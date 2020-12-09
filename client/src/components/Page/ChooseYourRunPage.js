@@ -28,32 +28,22 @@ export default function ChooseYourRunPage() {
       <ChooseYourRunPageContainer>
         <AppHeader title={"Choose Your Run"} />
         <ScrollContainer>
-          <Link to="/created_run">
-            <RunCard
-              date={"44.44.444"}
-              time={"14:44"}
-              distance={"10"}
-              isFavorite={true}
-              runName={"Severin Brücke Run"}
-            ></RunCard>
-            <RunCard
-              date={"44.44.444"}
-              time={"14:44"}
-              distance={"10"}
-              runName={"Grüngürtel"}
-            ></RunCard>
-            <RunCard
-              date={"44.44.444"}
-              time={"14:44"}
-              distance={"10"}
-            ></RunCard>
+          <RunCard
+            date={"44.44.444"}
+            time={"14:44"}
+            distance={"10"}
+            isFavorite={true}
+            runName={"Severin Brücke Run"}
+          />
+          <RunCard
+            date={"44.44.444"}
+            time={"14:44"}
+            distance={"10"}
+            runName={"Grüngürtel"}
+          ></RunCard>
+          <RunCard date={"44.44.444"} time={"14:44"} distance={"10"}></RunCard>
 
-            <RunCard
-              date={"44.44.444"}
-              time={"14:44"}
-              distance={"10"}
-            ></RunCard>
-          </Link>
+          <RunCard date={"44.44.444"} time={"14:44"} distance={"10"}></RunCard>
         </ScrollContainer>
       </ChooseYourRunPageContainer>
       <BottomNav />

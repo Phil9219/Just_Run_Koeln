@@ -3,6 +3,7 @@ import CheckHookEmpty from "../../assets/checkHookEmpty.svg";
 import CheckHookFilled from "../../assets/checkHookFilled.svg";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import Map from "../Map/Map";
 const Container = styled.div`
   height: 600px;
   width: 90%;
@@ -17,12 +18,9 @@ const Container = styled.div`
   color: var(--secondary-color);
   font-weight: 600;
 
-  background-color: purple;
-
   div {
     display: flex;
     justify-content: space-between;
-    background-color: red;
 
     gap: 16px;
 
@@ -30,7 +28,6 @@ const Container = styled.div`
       flex-direction: column;
       align-items: flex-start;
       gap: 5px;
-      background-color: green;
 
       p {
         margin: 0;
@@ -67,7 +64,7 @@ const Container = styled.div`
 `;
 
 const MapContainer = styled.div`
-  height: 100px;
+  height: 450px;
   width: 100%;
   border-radius: 5px;
   border: 2px solid var(--secondary-color);
@@ -104,7 +101,9 @@ const BigRunCard = ({
         </div>
       </div>
       <p>{runName}</p>
-      <MapContainer></MapContainer>
+      <MapContainer>
+        <Map />
+      </MapContainer>
     </Container>
   );
 };

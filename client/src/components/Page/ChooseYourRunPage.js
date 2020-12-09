@@ -38,6 +38,7 @@ export default function ChooseYourRunPage() {
       <ChooseYourRunPageContainer>
         <AppHeader title={"Choose Your Run"} />
         <ScrollContainer>
+
           {runs?.map((run) => (
             <Link key={run.id} to={`/runs/${run.id}`}>
               <RunCard
@@ -48,6 +49,7 @@ export default function ChooseYourRunPage() {
             </Link>
           ))}
           ;
+
         </ScrollContainer>
       </ChooseYourRunPageContainer>
       <BottomNav />

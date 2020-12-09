@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components/macro";
+
 import AppHeader from "../../components/AppHeader/AppHeader";
+
 import RunCard from "../../components/RunCard/RunCard";
 import BottomNav from "../../components/BottomNav/BottomNav";
 import { Link } from "react-router-dom";
@@ -37,7 +39,7 @@ export default function ChooseYourRunPage() {
         <AppHeader title={"Choose Your Run"} />
         <ScrollContainer>
           {runs?.map((run) => (
-            <Link key={run.id} to="/created_run">
+            <Link key={run.id} to={`/runs/${run.id}`}>
               <RunCard
                 date={run.date}
                 time={run.time}

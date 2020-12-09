@@ -26,15 +26,7 @@ export default function CreatedRunPage() {
       <CreatedRunPageContainer>
         <AppHeader title={"Run"} />
 
-        <BigRunCard
-          key={run.id}
-          id={run.id}
-          date={run.date}
-          time={run.time}
-          distance={run.distance}
-          isFavorite={true}
-          runName={run.runName}
-        ></BigRunCard>
+        <BigRunCard isFavorite={true} {...run}></BigRunCard>
       </CreatedRunPageContainer>
       <BottomNav />
     </>

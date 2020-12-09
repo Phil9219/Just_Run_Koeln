@@ -41,12 +41,9 @@ export default function ChooseYourRunPage() {
           {runs?.map((run) => (
             <Link key={run.id} to={`/runs/${run.id}`}>
               <RunCard
-                date={run.date}
-                time={run.time}
-                distance={run.distance}
-                isFavorite={true}
-                runName={run.runName}
                 onFavoriteClick={() => alert("click")}
+                isFavorite={true}
+                {...run}
               ></RunCard>
             </Link>
           ))}

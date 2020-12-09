@@ -22,33 +22,33 @@ import {
 } from "@reach/combobox";
 import { formatRelative } from "date-fns";
 
-const MapHeader = styled.div`
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+// const MapHeader = styled.div`
+//   display: flex;
+//   justify-content: space-around;
+//   align-items: center;
 
-  input:nth-child(1) {
-    background: none;
+//   input:nth-child(1) {
+//     background: none;
 
-    border: solid 2px var(--secondary-color);
-    background: none;
-    color: var(--secondary-color);
-    font-family: "Heiti SC", adobe-heiti-std, sans-serif;
-    font-size: 1rem;
-    font-weight: 700;
-    display: flex;
-    text-align: center;
+//     border: solid 2px var(--secondary-color);
+//     background: none;
+//     color: var(--secondary-color);
+//     font-family: "Heiti SC", adobe-heiti-std, sans-serif;
+//     font-size: 1rem;
+//     font-weight: 700;
+//     display: flex;
+//     text-align: center;
 
-    ::placeholder {
-      color: var(--inputfield-color);
-    }
-  }
+//     ::placeholder {
+//       color: var(--inputfield-color);
+//     }
+//   }
 
-  button:nth-child(2) {
-    background: none;
-    border: none;
-  }
-`;
+//   button:nth-child(2) {
+//     background: none;
+//     border: none;
+//   }
+// `;
 const InfoBubble = styled.div`
   color: var(--primary-color);
 `;

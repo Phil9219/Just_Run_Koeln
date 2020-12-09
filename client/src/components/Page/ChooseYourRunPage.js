@@ -7,6 +7,7 @@ import RunCard from "../../components/RunCard/RunCard";
 import BottomNav from "../../components/BottomNav/BottomNav";
 import { Link } from "react-router-dom";
 import { getRuns } from "../../api/runs";
+import { id } from "date-fns/locale";
 const ChooseYourRunPageContainer = styled.div`
   width: 100%;
   height: 100%;
@@ -38,18 +39,15 @@ export default function ChooseYourRunPage() {
       <ChooseYourRunPageContainer>
         <AppHeader title={"Choose Your Run"} />
         <ScrollContainer>
-
           {runs?.map((run) => (
-            <Link key={run.id} to={`/runs/${run.id}`}>
-              <RunCard
-                onFavoriteClick={() => alert("click")}
-                isFavorite={true}
-                {...run}
-              ></RunCard>
-            </Link>
+            <RunCard
+              key={id}
+              onFavoriteClick={() => alert("click")}
+              isFavorite={true}
+              {...run}
+            ></RunCard>
           ))}
           ;
-
         </ScrollContainer>
       </ChooseYourRunPageContainer>
       <BottomNav />

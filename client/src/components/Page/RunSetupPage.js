@@ -9,6 +9,7 @@ import BottomNav from "../../components/BottomNav/BottomNav";
 import { Link } from "react-router-dom";
 
 const RunSetupContainer = styled.div`
+  height: 100vh;
   display: grid;
   justify-content: center;
   padding: 15px;
@@ -43,9 +44,9 @@ export default function RunSetupPage() {
       <RunSetupContainer>
         <Calendar />
 
-        <Map />
+        <Map></Map>
         <InputfieldsContainer>
-          <Input placeholder="Choose Your Distance" />
+          <Input placeholder="Choose Your Kilometers" />
           <Input placeholder="Name Your Run" />
         </InputfieldsContainer>
         <Link to="/created_run" label="create">

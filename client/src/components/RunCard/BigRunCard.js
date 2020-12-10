@@ -102,7 +102,7 @@ const BigRunCard = ({
       </div>
       <p>{runName}</p>
       <MapContainer>
-        <Map />
+        <Map showHeader={false} />
       </MapContainer>
     </Container>
   );

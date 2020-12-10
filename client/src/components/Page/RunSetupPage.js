@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components/macro";
 import AppHeader from "../AppHeader/AppHeader";
 import Input from "../Input/Input";
@@ -7,6 +7,8 @@ import Map from "../Map/Map";
 import Button from "../Button/Button";
 import BottomNav from "../../components/BottomNav/BottomNav";
 import { Link } from "react-router-dom";
+import { getRunsById } from "../../api/runs";
+import { useParams } from "react-router-dom";
 
 const RunSetupContainer = styled.div`
   height: 100vh;
@@ -16,7 +18,7 @@ const RunSetupContainer = styled.div`
   padding: 15px;
   margin-top: 30%;
   margin-bottom: 30%;
-  z-index: -10;
+  z-index: 0;
 
   button:nth-child(1) {
     background-color: var(--secondary-color);
@@ -37,19 +39,48 @@ const InputfieldsContainer = styled.div`
   gap: 15px;
 `;
 
+// const MapContainer = styled.div`
+//   height: 450px;
+//   width: 100%;
+//   border: 2px solid var(--secondary-color);
+//   display: flex;
+//   align-items: center;
+// `;
+
+const MapContainer = styled.div`
+  height: 250px;
+  width: 100%;
+  border-radius: 5px;
+  border: 2px solid var(--secondary-color);
+  display: flex;
+  align-items: center;
+`;
+
 export default function RunSetupPage() {
+  const { id } = useParams();
+  const [run, setRun] = useState(id);
+  useEffect(() => {
+    async function fetchData() {
+      const runDetails = await getRunsById(id);
+      setRun(runDetails);
+    }
+    fetchData();
+  }, [id]);
+
   return (
     <>
       <AppHeader title={"Create Your Run"} />
       <RunSetupContainer>
         <Calendar />
 
-        <Map></Map>
+        <MapContainer>
+          <Map />
+        </MapContainer>
         <InputfieldsContainer>
           <Input placeholder="Choose Your Kilometers" />
           <Input placeholder="Name Your Run" />
         </InputfieldsContainer>
-        <Link to="/created_run">
+        <Link to={`/runs/${id}`}>
           <Button>Create Run</Button>
         </Link>
       </RunSetupContainer>

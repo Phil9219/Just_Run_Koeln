@@ -22,33 +22,36 @@ import {
 } from "@reach/combobox";
 import { formatRelative } from "date-fns";
 
-// const MapHeader = styled.div`
-//   display: flex;
-//   justify-content: space-around;
-//   align-items: center;
+const MapHeader = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 50;
+  position: absolute;
+  input:nth-child(1) {
+    background: none;
 
-//   input:nth-child(1) {
-//     background: none;
+    border: solid 2px var(--secondary-color);
+    border-radius: 5px;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    font-family: "Heiti SC", adobe-heiti-std, sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    display: flex;
+    text-align: center;
 
-//     border: solid 2px var(--secondary-color);
-//     background: none;
-//     color: var(--secondary-color);
-//     font-family: "Heiti SC", adobe-heiti-std, sans-serif;
-//     font-size: 1rem;
-//     font-weight: 700;
-//     display: flex;
-//     text-align: center;
+    ::placeholder {
+      color: var(--inputfield-color);
+    }
+  }
 
-//     ::placeholder {
-//       color: var(--inputfield-color);
-//     }
-//   }
-
-//   button:nth-child(2) {
-//     background: none;
-//     border: none;
-//   }
-// `;
+  button:nth-child(2) {
+    background: none;
+    border: none;
+  }
+`;
 const InfoBubble = styled.div`
   color: var(--primary-color);
 `;
@@ -68,7 +71,7 @@ const options = {
   zoomControl: true,
 };
 
-export default function Map() {
+export default function Map({ showHeader = true }) {
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
     libraries,
@@ -103,11 +106,6 @@ export default function Map() {
 
   return (
     <>
-      {/* <MapHeader>
-        <Search panTo={panTo} />
-        <Locate panTo={panTo} />
-      </MapHeader> */}
-
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
         zoom={12}
@@ -116,6 +114,12 @@ export default function Map() {
         onClick={onMapClick}
         onLoad={onMapLoad}
       >
+        {showHeader && (
+          <MapHeader>
+            <Search panTo={panTo} />
+            <Locate panTo={panTo} />
+          </MapHeader>
+        )}
         {markers.map((marker) => (
           <Marker
             key={marker.time.toISOString()}
@@ -143,6 +147,10 @@ export default function Map() {
     </>
   );
 }
+
+Map.propTypes = {
+  showHeader: PropTypes.bool,
+};
 
 Locate.propTypes = {
   panTo: PropTypes.string.isRequired,

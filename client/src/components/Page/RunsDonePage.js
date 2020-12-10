@@ -3,15 +3,9 @@ import styled from "styled-components/macro";
 import AppHeader from "../../components/AppHeader/AppHeader";
 import RunCard from "../../components/RunCard/RunCard";
 import BottomNav from "../../components/BottomNav/BottomNav";
-import { Link } from "react-router-dom";
 import { getRuns } from "../../api/runs";
 import { id } from "date-fns/locale";
-const RunsDoneContainer = styled.div`
-  width: 100%;
-  height: 100%;
-  margin-top: 30%;
-  margin-bottom: 30%;
-`;
+import { RunsDoneContainer } from "../../components/PageContainer";
 
 const ScrollContainer = styled.div`
   display: flex;
@@ -44,7 +38,7 @@ export default function RunsDonePage() {
               onFavoriteClick={() => alert("click")}
               isFavorite={true}
               {...run}
-            ></RunCard>
+            />
           ))}
           ;
         </ScrollContainer>

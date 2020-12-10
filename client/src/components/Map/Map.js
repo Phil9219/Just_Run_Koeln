@@ -25,13 +25,12 @@ import { formatRelative } from "date-fns";
 const MapHeader = styled.div`
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   z-index: 50;
   position: absolute;
   input:nth-child(1) {
     background: none;
-
     border: solid 2px var(--secondary-color);
     border-radius: 5px;
     background-color: var(--secondary-color);

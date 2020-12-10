@@ -1,19 +1,10 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components/macro";
 import AppHeader from "../AppHeader/AppHeader";
 import BigRunCard from "../RunCard/BigRunCard";
 import BottomNav from "../../components/BottomNav/BottomNav";
 import { getRunsById } from "../../api/runs";
 import { useParams } from "react-router-dom";
-const CreatedRunPageContainer = styled.div`
-  width: 100%;
-  height: 100%;
-  margin-top: 30%;
-  margin-bottom: 15%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-`;
+import { CreatedRunContainer } from "../../components/PageContainer";
 
 export default function CreatedRunPage() {
   const { id } = useParams();
@@ -29,9 +20,9 @@ export default function CreatedRunPage() {
   return (
     <>
       <AppHeader title={"Run"} />
-      <CreatedRunPageContainer>
+      <CreatedRunContainer>
         <BigRunCard isFavorite={true} {...run}></BigRunCard>
-      </CreatedRunPageContainer>
+      </CreatedRunContainer>
       <BottomNav />
     </>
   );

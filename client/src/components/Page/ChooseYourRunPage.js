@@ -5,12 +5,7 @@ import RunCard from "../../components/RunCard/RunCard";
 import BottomNav from "../../components/BottomNav/BottomNav";
 import { getRuns } from "../../api/runs";
 import { id } from "date-fns/locale";
-const ChooseYourRunPageContainer = styled.div`
-  width: 100%;
-  height: 100%;
-  margin-top: 30%;
-  margin-bottom: 15%;
-`;
+import { ChooseRunContainer } from "../../components/PageContainer";
 
 const ScrollContainer = styled.div`
   display: flex;
@@ -36,7 +31,7 @@ export default function ChooseYourRunPage() {
   return (
     <>
       <AppHeader title={"Choose Your Run"} />
-      <ChooseYourRunPageContainer>
+      <ChooseRunContainer>
         <ScrollContainer>
           {runs?.map((run) => (
             <RunCard
@@ -44,11 +39,11 @@ export default function ChooseYourRunPage() {
               onFavoriteClick={() => alert("click")}
               isFavorite={true}
               {...run}
-            ></RunCard>
+            />
           ))}
           ;
         </ScrollContainer>
-      </ChooseYourRunPageContainer>
+      </ChooseRunContainer>
       <BottomNav />
     </>
   );

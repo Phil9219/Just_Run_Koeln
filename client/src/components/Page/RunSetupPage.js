@@ -12,18 +12,20 @@ import { useParams } from "react-router-dom";
 
 const RunSetupContainer = styled.div`
   height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   padding: 15px;
   margin-top: 30%;
-  margin-bottom: 30%;
+  margin-bottom: 20%;
   z-index: 0;
+  position: absolute;
 
   button:nth-child(1) {
     background-color: var(--secondary-color);
     color: var(--primary-color);
-    margin: 0 30px 0 90px;
+    margin: 0 50%
     font-size: 1.5rem;
   }
 `;
@@ -39,18 +41,9 @@ const InputfieldsContainer = styled.div`
   gap: 15px;
 `;
 
-// const MapContainer = styled.div`
-//   height: 450px;
-//   width: 100%;
-//   border: 2px solid var(--secondary-color);
-//   display: flex;
-//   align-items: center;
-// `;
-
 const MapContainer = styled.div`
-  height: 250px;
+  height: 400px;
   width: 100%;
-  border-radius: 5px;
   border: 2px solid var(--secondary-color);
   display: flex;
   align-items: center;
@@ -77,7 +70,7 @@ export default function RunSetupPage() {
           <Map />
         </MapContainer>
         <InputfieldsContainer>
-          <Input placeholder="Choose Your Kilometers" />
+          <Input placeholder="Choose Your Distance (in km)" />
           <Input placeholder="Name Your Run" />
         </InputfieldsContainer>
         <Link to={`/runs/${id}`}>

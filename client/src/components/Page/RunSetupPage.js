@@ -6,7 +6,7 @@ import Calendar from "../Calendar/Calendar";
 import Map from "../Map/Map";
 import Button from "../Button/Button";
 import BottomNav from "../../components/BottomNav/BottomNav";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { postRun } from "../../api/runs";
 
 const RunSetupContainer = styled.div`
@@ -24,7 +24,6 @@ const RunSetupContainer = styled.div`
   button:nth-child(1) {
     background-color: var(--secondary-color);
     color: var(--primary-color);
-    margin: 0 50%
     font-size: 1.5rem;
   }
 `;
@@ -49,23 +48,21 @@ const MapContainer = styled.div`
 `;
 
 export default function RunSetupPage(id) {
-  const [distance, setDistance] = useState(null); // numbers only!!! -> null correct?
+  const history = useHistory();
+  const [distance, setDistance] = useState("");
   const [runName, setRunName] = useState("");
 
   const handleDistanceChange = (event) => {
     setDistance(event.target.value);
-    console.log(distance);
   };
 
   const handleRunNameChange = (event) => {
     setRunName(event.target.value);
-    console.log(runName);
   };
-
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(runName, distance);
-    postRun(runName, distance);
+    const newRun = await postRun(runName, distance);
+    history.push(`/runs/${newRun.id}`);
   };
 
   return (
@@ -89,9 +86,7 @@ export default function RunSetupPage(id) {
             placeholder="Name Your Run"
           />
 
-          <Link to={`/runs/${id}`}>
-            <Button type="submit">Create Run</Button>
-          </Link>
+          <Button type="submit">Create Run</Button>
         </InputfieldsContainer>
       </RunSetupContainer>
       <BottomNav />

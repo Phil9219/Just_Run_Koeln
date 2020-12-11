@@ -47,7 +47,7 @@ const MapContainer = styled.div`
   align-items: center;
 `;
 
-export default function RunSetupPage(id) {
+export default function RunSetupPage() {
   const history = useHistory();
   const [distance, setDistance] = useState("");
   const [runName, setRunName] = useState("");

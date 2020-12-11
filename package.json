@@ -5,7 +5,6 @@
   "description": "Boilerplate for Create-React-App with an Express.js API",
   "main": "server.js",
   "scripts": {
-    "api": "json-server --watch db.json --port 5000",
     "postinstall": "cd client && npm install",
     "build": "cd client && npm run build && npm run build-storybook",
     "test:watch": "cd client && npm run test:watch",

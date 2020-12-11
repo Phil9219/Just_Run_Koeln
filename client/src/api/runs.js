@@ -8,3 +8,13 @@ export async function getRunsById(id) {
   const runsId = response.json();
   return runsId;
 }
+
+export async function postRun(runName, distance) {
+  const response = await fetch("/api/runs", {
+    method: "POST",
+    body: JSON.stringify(runName, distance),
+    headers: { "Content-Type": "application/json" },
+  });
+  const newRun = await response.json();
+  return newRun;
+}

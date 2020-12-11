@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components/macro";
 import AppHeader from "../AppHeader/AppHeader";
 import Input from "../Input/Input";
@@ -7,8 +7,7 @@ import Map from "../Map/Map";
 import Button from "../Button/Button";
 import BottomNav from "../../components/BottomNav/BottomNav";
 import { Link } from "react-router-dom";
-import { getRunsById } from "../../api/runs";
-import { useParams } from "react-router-dom";
+import { postRun } from "../../api/runs";
 
 const RunSetupContainer = styled.div`
   height: 100vh;
@@ -30,7 +29,7 @@ const RunSetupContainer = styled.div`
   }
 `;
 
-const InputfieldsContainer = styled.div`
+const InputfieldsContainer = styled.form`
   width: 100%;
   padding: 20px;
   display: flex;
@@ -49,16 +48,25 @@ const MapContainer = styled.div`
   align-items: center;
 `;
 
-export default function RunSetupPage() {
-  const { id } = useParams();
-  const [run, setRun] = useState(id);
-  useEffect(() => {
-    async function fetchData() {
-      const runDetails = await getRunsById(id);
-      setRun(runDetails);
-    }
-    fetchData();
-  }, [id]);
+export default function RunSetupPage(id) {
+  const [distance, setDistance] = useState(null); // numbers only!!! -> null correct?
+  const [runName, setRunName] = useState("");
+
+  const handleDistanceChange = (event) => {
+    setDistance(event.target.value);
+    console.log(distance);
+  };
+
+  const handleRunNameChange = (event) => {
+    setRunName(event.target.value);
+    console.log(runName);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(runName, distance);
+    postRun(runName, distance);
+  };
 
   return (
     <>
@@ -69,13 +77,22 @@ export default function RunSetupPage() {
         <MapContainer>
           <Map />
         </MapContainer>
-        <InputfieldsContainer>
-          <Input placeholder="Choose Your Distance (in km)" />
-          <Input placeholder="Name Your Run" />
+        <InputfieldsContainer onSubmit={handleSubmit}>
+          <Input
+            onChange={handleDistanceChange}
+            value={distance}
+            placeholder="Choose Your Distance (in km)"
+          />
+          <Input
+            onChange={handleRunNameChange}
+            value={runName}
+            placeholder="Name Your Run"
+          />
+
+          <Link to={`/runs/${id}`}>
+            <Button type="submit">Create Run</Button>
+          </Link>
         </InputfieldsContainer>
-        <Link to={`/runs/${id}`}>
-          <Button>Create Run</Button>
-        </Link>
       </RunSetupContainer>
       <BottomNav />
     </>

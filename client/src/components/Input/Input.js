@@ -17,4 +17,9 @@ const Input = styled.input`
   }
 `;
 
+Input.defaultProps = {
+  type: "text",
+  required: true,
+};
+
 export default Input;

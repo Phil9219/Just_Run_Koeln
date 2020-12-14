@@ -111,9 +111,9 @@ const BigRunCard = ({
 BigRunCard.propTypes = {
   isFavorite: PropTypes.bool,
   onFavoriteClick: PropTypes.func,
-  date: PropTypes.number.isRequired,
-  time: PropTypes.number.isRequired,
-  distance: PropTypes.number.isRequired,
-  runName: PropTypes.string.isRequired,
+  date: PropTypes.number,
+  time: PropTypes.number,
+  distance: PropTypes.number,
+  runName: PropTypes.string,
 };
 export default BigRunCard;

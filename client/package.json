@@ -19,7 +19,6 @@
     "date-fns": "^2.16.1",
     "eslint": "^7.14.0",
     "eslint-plugin-react": "^7.21.5",
-    "json-server": "^0.16.3",
     "react": "^17.0.1",
     "react-datepicker": "^3.3.0",
     "react-dom": "^17.0.1",
@@ -30,7 +29,6 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "api": "json-server --watch db.json --port 5000 ",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test:watch": "react-scripts test",

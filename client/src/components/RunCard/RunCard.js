@@ -80,18 +80,19 @@ const RunCard = ({
   time,
   distance,
   runName,
+  id,
 }) => {
   return (
     <Container>
       <div>
-        <Link to="/created_run">
+        <Link to={`/runs/${id}`}>
           <div>
             <p>{date}</p>
             <p>{time}</p>
           </div>
         </Link>
         <div>
-          <Link to="/created_run">
+          <Link to={`/runs/${id}`}>
             <p>{distance}km</p>
           </Link>
           <Link to="/runs_done" label="runs done">
@@ -107,7 +108,7 @@ const RunCard = ({
       <p>{runName}</p>
 
       <MapContainer>
-        <Map />
+        <Map showHeader={false} />
       </MapContainer>
     </Container>
   );
@@ -120,5 +121,6 @@ RunCard.propTypes = {
   time: PropTypes.number.isRequired,
   distance: PropTypes.number.isRequired,
   runName: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
 };
 export default RunCard;

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import Map from "../Map/Map";
 const Container = styled.div`
   height: 600px;
-  width: 90%;
+  width: 100%;
   display: flex;
   flex-direction: column;
 
@@ -102,7 +102,7 @@ const BigRunCard = ({
       </div>
       <p>{runName}</p>
       <MapContainer>
-        <Map />
+        <Map showHeader={false} />
       </MapContainer>
     </Container>
   );

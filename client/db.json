@@ -20,6 +20,13 @@
       "date": "26.12.2020",
       "time": "13:30",
       "distance": "7,5"
+    },
+    {
+      "runName": "Aachener Weiher Run",
+      "id": 4,
+      "date": "27.12.2020",
+      "time": "16:30",
+      "distance": "6,5"
     }
   ]
 }

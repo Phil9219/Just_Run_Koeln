@@ -21,6 +21,7 @@ const StyledDatePicker = styled(DatePicker)`
 `;
 const InputContainer = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   margin-bottom: 4%;
 `;

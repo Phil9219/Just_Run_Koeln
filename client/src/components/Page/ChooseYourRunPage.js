@@ -1,16 +1,11 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components/macro";
-
 import AppHeader from "../../components/AppHeader/AppHeader";
-
 import RunCard from "../../components/RunCard/RunCard";
 import BottomNav from "../../components/BottomNav/BottomNav";
-import { Link } from "react-router-dom";
 import { getRuns } from "../../api/runs";
-const ChooseYourRunPageContainer = styled.div`
-  width: 100%;
-  height: 100%;
-`;
+import { id } from "date-fns/locale";
+import { ChooseRunContainer } from "../../components/PageContainer";
 
 const ScrollContainer = styled.div`
   display: flex;
@@ -35,23 +30,20 @@ export default function ChooseYourRunPage() {
 
   return (
     <>
-      <ChooseYourRunPageContainer>
-        <AppHeader title={"Choose Your Run"} />
+      <AppHeader title={"Choose Your Run"} />
+      <ChooseRunContainer>
         <ScrollContainer>
-
           {runs?.map((run) => (
-            <Link key={run.id} to={`/runs/${run.id}`}>
-              <RunCard
-                onFavoriteClick={() => alert("click")}
-                isFavorite={true}
-                {...run}
-              ></RunCard>
-            </Link>
+            <RunCard
+              key={id}
+              onFavoriteClick={() => alert("click")}
+              isFavorite={true}
+              {...run}
+            />
           ))}
           ;
-
         </ScrollContainer>
-      </ChooseYourRunPageContainer>
+      </ChooseRunContainer>
       <BottomNav />
     </>
   );

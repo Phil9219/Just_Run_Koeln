@@ -23,16 +23,18 @@ import {
 import { formatRelative } from "date-fns";
 
 const MapHeader = styled.div`
+  width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-
+  z-index: 50;
+  position: absolute;
   input:nth-child(1) {
     background: none;
-
     border: solid 2px var(--secondary-color);
-    background: none;
-    color: var(--secondary-color);
+    border-radius: 5px;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
     font-family: "Heiti SC", adobe-heiti-std, sans-serif;
     font-size: 1rem;
     font-weight: 700;
@@ -68,7 +70,7 @@ const options = {
   zoomControl: true,
 };
 
-export default function Map() {
+export default function Map({ showHeader = true }) {
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
     libraries,
@@ -103,11 +105,6 @@ export default function Map() {
 
   return (
     <>
-      {/* <MapHeader>
-        <Search panTo={panTo} />
-        <Locate panTo={panTo} />
-      </MapHeader> */}
-
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
         zoom={12}
@@ -116,6 +113,12 @@ export default function Map() {
         onClick={onMapClick}
         onLoad={onMapLoad}
       >
+        {showHeader && (
+          <MapHeader>
+            <Search panTo={panTo} />
+            <Locate panTo={panTo} />
+          </MapHeader>
+        )}
         {markers.map((marker) => (
           <Marker
             key={marker.time.toISOString()}
@@ -143,6 +146,10 @@ export default function Map() {
     </>
   );
 }
+
+Map.propTypes = {
+  showHeader: PropTypes.bool,
+};
 
 Locate.propTypes = {
   panTo: PropTypes.string.isRequired,

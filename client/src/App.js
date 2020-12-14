@@ -24,6 +24,11 @@ function App() {
           <Route exact path="/splash">
             {page ? <SplashPage /> : <LoginPage />}
           </Route>
+
+          <Route exact path="/login">
+            <LoginPage />
+          </Route>
+
           <Route path="/choose_your_run">
             <ChooseYourRunPage />
           </Route>

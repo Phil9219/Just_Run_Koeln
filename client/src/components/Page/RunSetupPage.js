@@ -14,7 +14,7 @@ const RunSetupContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+
   padding: 15px;
   margin-top: 30%;
   margin-bottom: 20%;

@@ -14,10 +14,6 @@ const StyledDatePicker = styled(DatePicker)`
   font-weight: 700;
   display: flex;
   text-align: center;
-
-  ::placeholder {
-    color: var(--inputfield-color);
-  }
 `;
 const InputContainer = styled.div`
   display: flex;

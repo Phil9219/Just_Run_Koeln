@@ -9,10 +9,10 @@ export async function getRunsById(id) {
   return runsId;
 }
 
-export async function postRun(runName, distance) {
+export async function postRun(run) {
   const response = await fetch("/api/runs", {
     method: "POST",
-    body: JSON.stringify({ runName, distance }),
+    body: JSON.stringify(run),
     headers: { "Content-Type": "application/json" },
   });
   const newRun = await response.json();

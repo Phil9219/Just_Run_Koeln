@@ -8,6 +8,7 @@ import Button from "../Button/Button";
 import BottomNav from "../../components/BottomNav/BottomNav";
 import { useHistory } from "react-router-dom";
 import { postRun } from "../../api/runs";
+import DropdownPace from "../DropdownPace/DropdownPace";
 
 const RunSetupContainer = styled.div`
   height: 100vh;
@@ -79,7 +80,9 @@ export default function RunSetupPage() {
         <MapContainer>
           <Map />
         </MapContainer>
+
         <InputfieldsContainer onSubmit={handleSubmit}>
+          <DropdownPace></DropdownPace>
           <Input
             onChange={handleDistanceChange}
             value={distance}

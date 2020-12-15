@@ -1,10 +1,9 @@
 import React from "react";
 import DatePicker from "react-datepicker";
-
 import styled from "styled-components/macro";
-
 import "./Calendar.css";
 import PropTypes from "prop-types";
+
 const StyledDatePicker = styled(DatePicker)`
   height: 40px;
   width: 100%;

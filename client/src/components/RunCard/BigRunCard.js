@@ -75,17 +75,22 @@ const MapContainer = styled.div`
 const BigRunCard = ({
   isFavorite,
   onFavoriteClick,
-  date,
-  time,
   distance,
   runName,
+  startDate,
 }) => {
+  const parseDate = new Date(startDate).toLocaleString("de-DE", {
+    weekday: "short",
+    day: "2-digit",
+    month: "short",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
   return (
     <Container>
       <div>
         <div>
-          <p>{date}</p>
-          <p>{time}</p>
+          <p>{parseDate}</p>
         </div>
 
         <div>
@@ -111,9 +116,8 @@ const BigRunCard = ({
 BigRunCard.propTypes = {
   isFavorite: PropTypes.bool,
   onFavoriteClick: PropTypes.func,
-  date: PropTypes.number,
-  time: PropTypes.number,
   distance: PropTypes.number,
   runName: PropTypes.string,
+  startDate: PropTypes.instanceOf(Date),
 };
 export default BigRunCard;

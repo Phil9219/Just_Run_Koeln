@@ -77,13 +77,10 @@ const RunCard = ({
   isFavorite,
   onFavoriteClick,
   startDate,
-
   distance,
   runName,
   id,
 }) => {
-  console.log(startDate);
-
   const parseDate = new Date(startDate).toLocaleString("de-DE", {
     weekday: "short",
     day: "2-digit",
@@ -91,8 +88,6 @@ const RunCard = ({
     hour: "2-digit",
     minute: "2-digit",
   });
-
-  console.log(parseDate);
 
   return (
     <Container>

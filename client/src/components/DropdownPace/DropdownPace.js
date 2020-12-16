@@ -21,7 +21,7 @@ const DropdownPace = ({ pace, setPace }) => {
 
   return (
     <Select onChange={handlePacePick} value={pace}>
-      <option pace="2.5 min/km"> 2.5 min/km</option>
+      <option pace="2.5 min/km"> 2.0 min/km</option>
       <option pace="2.5 min/km"> 2.5 min/km</option>
       <option pace="3.0 min/km"> 3.0 min/km</option>
       <option pace="3.5 min/km"> 3.5 min/km</option>

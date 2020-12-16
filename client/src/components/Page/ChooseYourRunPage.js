@@ -29,7 +29,7 @@ export default function ChooseYourRunPage() {
     fetchData();
   }, []);
 
-  function handleSubmit(searchResults) {
+  function handleTypeIn(searchResults) {
     setRuns(searchResults);
   }
 
@@ -37,7 +37,7 @@ export default function ChooseYourRunPage() {
     <>
       <AppHeader title={"Choose Your Run"} />
       <ChooseRunContainer>
-        <Search handleSubmit={handleSubmit} />
+        <Search handleSubmit={handleTypeIn} />
         <ScrollContainer>
           {runs?.map((run) => (
             <RunCard

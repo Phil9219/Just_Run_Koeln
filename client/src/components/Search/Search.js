@@ -43,7 +43,14 @@ function Search({ handleSubmit }) {
         type="number"
         step="any"
         autoComplete="off"
-        onChange={(event) => setSearchKm(event.target.value)}
+        onChange={async (event) => {
+          setSearchKm(event.target.value);
+          if (event.target.value) {
+            handleSubmit(await searchForKm(event.target.value));
+          } else {
+            handleSubmit(await getRuns());
+          }
+        }}
         placeholder=" Km 0.00"
       ></input>
     </Form>

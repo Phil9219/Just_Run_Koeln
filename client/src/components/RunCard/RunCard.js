@@ -80,6 +80,7 @@ const RunCard = ({
   distance,
   runName,
   id,
+  pace,
 }) => {
   const parseDate = new Date(startDate).toLocaleString("de-DE", {
     weekday: "short",
@@ -100,6 +101,7 @@ const RunCard = ({
         <div>
           <Link to={`/runs/${id}`}>
             <p>{distance}km</p>
+            <p>{pace} ø Pace</p>
           </Link>
           <Link to="/runs_done" label="runs done">
             <button onClick={onFavoriteClick}>
@@ -127,5 +129,6 @@ RunCard.propTypes = {
   runName: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
   startDate: PropTypes.instanceOf(Date),
+  pace: PropTypes.number.isRequired,
 };
 export default RunCard;

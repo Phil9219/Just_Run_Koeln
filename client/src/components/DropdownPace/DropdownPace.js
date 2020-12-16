@@ -1,5 +1,5 @@
 import styled from "styled-components/macro";
-
+import PropTypes from "prop-types";
 const Select = styled.select`
   height: 40px;
   width: 100%;
@@ -14,26 +14,40 @@ const Select = styled.select`
   text-align: center;
 `;
 
-const DropdownPace = () => {
+const DropdownPace = ({ pace, setPace }) => {
+  const handlePacePick = (event) => {
+    setPace(event.target.value);
+  };
+
   return (
-    <Select>
-      <option>2.0km,/h</option>
-      <option>2.5km,/h</option>
-      <option>3.0km,/h</option>
-      <option>3.5km,/h</option>
-      <option>4.0km,/h</option>
-      <option>4.5km,/h</option>
-      <option selected>5.0km,/h</option>
-      <option>5.5km,/h</option>
-      <option>6.0km,/h</option>
-      <option>6.5km,/h</option>
-      <option>7.0km,/h</option>
-      <option>7.5km,/h</option>
-      <option>8.0km,/h</option>
-      <option>8.5km,/h</option>
-      <option>9.0km,/h</option>
+    <Select onChange={handlePacePick} value={pace}>
+      <option pace="2.5 min/km"> 2.5 min/km</option>
+      <option pace="2.5 min/km"> 2.5 min/km</option>
+      <option pace="3.0 min/km"> 3.0 min/km</option>
+      <option pace="3.5 min/km"> 3.5 min/km</option>
+      <option pace="4.0 min/km"> 4.0 min/km</option>
+      <option pace="4.5 min/km"> 4.5 min/km</option>
+      <option selected pace="5.0 min/km">
+        {" "}
+        5.0 min/km
+      </option>
+      <option pace="5.5 min/km"> 5.5 min/km</option>
+      <option pace="6.0 min/km"> 6.0 min/km</option>
+      <option pace="6.5 min/km"> 6.5 min/km</option>
+      <option pace="7.0 min/km"> 7.0 min/km</option>
+      <option pace="7.5 min/km"> 7.5 min/km</option>
+      <option pace="8.0 min/km"> 8.0 min/km</option>
+      <option pace="8.5 min/km"> 8.5 min/km</option>
+      <option pace="9.0 min/km"> 9.0 min/km</option>
+      <option pace="9.5 min/km"> 9.5 min/km</option>
+      <option pace="10 min/km"> 10 min/km</option>
     </Select>
   );
+};
+
+DropdownPace.propTypes = {
+  pace: PropTypes.string,
+  setPace: PropTypes.string,
 };
 
 export default DropdownPace;

@@ -53,6 +53,7 @@ export default function RunSetupPage() {
   const [distance, setDistance] = useState("");
   const [runName, setRunName] = useState("");
   const [startDate, setStartDate] = useState(() => new Date());
+  const [pace, setPace] = useState("");
 
   const handleDistanceChange = (event) => {
     setDistance(event.target.value);
@@ -65,12 +66,13 @@ export default function RunSetupPage() {
   const handleDateChange = (newDate) => {
     setStartDate(newDate);
   };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const newRun = await postRun({ runName, distance, startDate });
+    const newRun = await postRun({ runName, distance, startDate, pace });
     history.push(`/runs/${newRun.id}`);
   };
-
+  console.log(pace);
   return (
     <>
       <AppHeader title={"Create Your Run"} />
@@ -82,7 +84,8 @@ export default function RunSetupPage() {
         </MapContainer>
 
         <InputfieldsContainer onSubmit={handleSubmit}>
-          <DropdownPace></DropdownPace>
+          <DropdownPace pace={pace} setPace={setPace} />
+
           <Input
             onChange={handleDistanceChange}
             value={distance}

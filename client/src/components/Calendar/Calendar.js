@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import DatePicker from "react-datepicker";
-// import "react-datepicker/dist/react-datepicker.css";
 import styled from "styled-components/macro";
 import "./Calendar.css";
+import PropTypes from "prop-types";
+
 const StyledDatePicker = styled(DatePicker)`
   height: 40px;
   width: 100%;
@@ -22,13 +23,12 @@ const InputContainer = styled.div`
   margin-bottom: 4%;
 `;
 
-export default function Calendar() {
-  const [startDate, setStartDate] = useState(new Date());
+export default function Calendar({ value, onChange }) {
   return (
     <InputContainer>
       <StyledDatePicker
-        selected={startDate}
-        onChange={(date) => setStartDate(date)}
+        selected={value}
+        onChange={onChange}
         showTimeSelect
         minDate={new Date()}
         timeFormat="HH:mm"
@@ -38,3 +38,8 @@ export default function Calendar() {
     </InputContainer>
   );
 }
+
+Calendar.propTypes = {
+  value: PropTypes.instanceOf(Date),
+  onChange: PropTypes.func,
+};

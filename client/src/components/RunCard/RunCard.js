@@ -76,19 +76,25 @@ const MapContainer = styled.div`
 const RunCard = ({
   isFavorite,
   onFavoriteClick,
-  date,
-  time,
+  startDate,
   distance,
   runName,
   id,
 }) => {
+  const parseDate = new Date(startDate).toLocaleString("de-DE", {
+    weekday: "short",
+    day: "2-digit",
+    month: "short",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+
   return (
     <Container>
       <div>
         <Link to={`/runs/${id}`}>
           <div>
-            <p>{date}</p>
-            <p>{time}</p>
+            <p>{parseDate}</p>
           </div>
         </Link>
         <div>
@@ -117,10 +123,9 @@ const RunCard = ({
 RunCard.propTypes = {
   isFavorite: PropTypes.bool,
   onFavoriteClick: PropTypes.func,
-  date: PropTypes.number.isRequired,
-  time: PropTypes.number.isRequired,
   distance: PropTypes.number.isRequired,
   runName: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
+  startDate: PropTypes.instanceOf(Date),
 };
 export default RunCard;

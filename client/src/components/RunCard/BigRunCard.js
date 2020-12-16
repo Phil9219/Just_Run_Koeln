@@ -78,6 +78,7 @@ const BigRunCard = ({
   distance,
   runName,
   startDate,
+  pace,
 }) => {
   const parseDate = new Date(startDate).toLocaleString("de-DE", {
     weekday: "short",
@@ -95,6 +96,7 @@ const BigRunCard = ({
 
         <div>
           <p>{distance}km</p>
+          <p>{pace} ø Pace</p>
           <Link to="/runs_done" label="runs done">
             <button onClick={onFavoriteClick}>
               <img
@@ -119,5 +121,6 @@ BigRunCard.propTypes = {
   distance: PropTypes.number,
   runName: PropTypes.string,
   startDate: PropTypes.instanceOf(Date),
+  pace: PropTypes.number.isRequired,
 };
 export default BigRunCard;

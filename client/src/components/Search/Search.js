@@ -2,11 +2,14 @@ import styled from "styled-components/macro";
 import PropTypes from "prop-types";
 import { useState } from "react";
 
-import { searchForKm } from "../../api/runs";
+import { getRuns, searchForKm } from "../../api/runs";
 const Form = styled.form`
+  display: flex;
+  justify-content: center;
+
   input {
     height: 40px;
-    width: 100%;
+    width: 70%;
     margin-top: 15px;
     border: solid 2px var(--secondary-color);
     background: none;
@@ -28,14 +31,20 @@ function Search({ handleSubmit }) {
     <Form
       onSubmit={async (event) => {
         event.preventDefault();
-        handleSubmit(await searchForKm(searchKm));
+        if (searchKm) {
+          handleSubmit(await searchForKm(searchKm));
+        } else {
+          handleSubmit(await getRuns());
+        }
       }}
     >
       <input
         value={searchKm}
         type="number"
+        step="any"
+        autoComplete="off"
         onChange={(event) => setSearchKm(event.target.value)}
-        placeholder=" Search for km"
+        placeholder=" Km 0.00"
       ></input>
     </Form>
   );

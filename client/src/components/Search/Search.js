@@ -24,33 +24,21 @@ const Form = styled.form`
   }
 `;
 
-function Search({ handleSubmit }) {
+function Search({ onSubmit }) {
   const [searchKm, setSearchKm] = useState();
 
+  function handleChange(event) {
+    setSearchKm(event.target.value);
+  }
+
   return (
-    <Form
-      onSubmit={async (event) => {
-        event.preventDefault();
-        if (searchKm) {
-          handleSubmit(await searchForKm(searchKm));
-        } else {
-          handleSubmit(await getRuns());
-        }
-      }}
-    >
+    <Form onSubmit={(event) => onSubmit(event, searchKm)}>
       <input
         value={searchKm}
         type="number"
         step="any"
         autoComplete="off"
-        onChange={async (event) => {
-          setSearchKm(event.target.value);
-          if (event.target.value) {
-            handleSubmit(await searchForKm(event.target.value));
-          } else {
-            handleSubmit(await getRuns());
-          }
-        }}
+        onChange={handleChange}
         placeholder=" Km 0.00"
       ></input>
     </Form>
@@ -60,5 +48,5 @@ function Search({ handleSubmit }) {
 export default Search;
 
 Search.propTypes = {
-  handleSubmit: PropTypes.func,
+  onSubmit: PropTypes.func,
 };

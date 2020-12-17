@@ -13,6 +13,19 @@
       "startDate": "2020-12-22T10:48:00.000Z",
       "pace": "3.0 min/km",
       "id": 2
+    },
+    {
+      "runName": "Test",
+      "distance": "5.5",
+      "startDate": "2020-12-16T13:24:35.390Z",
+      "id": 3
+    },
+    {
+      "runName": "Hello",
+      "distance": "12",
+      "startDate": "2020-12-17T13:23:39.985Z",
+      "pace": "3.5",
+      "id": 4
     }
   ]
 }

@@ -53,7 +53,7 @@ export default function RunSetupPage() {
   const [distance, setDistance] = useState("");
   const [runName, setRunName] = useState("");
   const [startDate, setStartDate] = useState(() => new Date());
-  const [pace, setPace] = useState("");
+  const [pace, onPaceChange] = useState("");
 
   const handleDistanceChange = (event) => {
     setDistance(event.target.value);
@@ -84,7 +84,7 @@ export default function RunSetupPage() {
         </MapContainer>
 
         <InputfieldsContainer onSubmit={handleSubmit}>
-          <DropdownPace pace={pace} setPace={setPace} />
+          <DropdownPace pace={pace} onPaceChange={onPaceChange} />
 
           <Input
             onChange={handleDistanceChange}

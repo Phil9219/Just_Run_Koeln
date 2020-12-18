@@ -18,3 +18,9 @@ export async function postRun(run) {
   const newRun = await response.json();
   return newRun;
 }
+
+export async function searchForKm(distance) {
+  const response = await fetch(`/api/runs?distance=${distance}`);
+  const runsByKm = await response.json();
+  return runsByKm;
+}

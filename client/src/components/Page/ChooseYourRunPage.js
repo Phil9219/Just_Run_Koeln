@@ -3,7 +3,8 @@ import styled from "styled-components/macro";
 import AppHeader from "../../components/AppHeader/AppHeader";
 import RunCard from "../../components/RunCard/RunCard";
 import BottomNav from "../../components/BottomNav/BottomNav";
-import { getRuns } from "../../api/runs";
+import Search from "../../components/Search/Search";
+import { getRuns, searchForKm } from "../../api/runs";
 import { id } from "date-fns/locale";
 import { ChooseRunContainer } from "../../components/PageContainer";
 
@@ -28,10 +29,20 @@ export default function ChooseYourRunPage() {
     fetchData();
   }, []);
 
+  async function handleTypeIn(event, searchValue) {
+    event.preventDefault();
+    if (searchValue) {
+      setRuns(await searchForKm(searchValue));
+    } else {
+      setRuns(await getRuns());
+    }
+  }
+
   return (
     <>
       <AppHeader title={"Choose Your Run"} />
       <ChooseRunContainer>
+        <Search onSubmit={handleTypeIn} />
         <ScrollContainer>
           {runs?.map((run) => (
             <RunCard

@@ -4,6 +4,7 @@ import CheckHookFilled from "../../assets/checkHookFilled.svg";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import Map from "../Map/Map";
+import toLocaleDateString from "../../utils/localDateString";
 const Container = styled.div`
   height: 600px;
   width: 100%;
@@ -78,23 +79,20 @@ const BigRunCard = ({
   distance,
   runName,
   startDate,
+  pace,
 }) => {
-  const parseDate = new Date(startDate).toLocaleString("de-DE", {
-    weekday: "short",
-    day: "2-digit",
-    month: "short",
-    hour: "2-digit",
-    minute: "2-digit",
-  });
+  const localeDateString = toLocaleDateString(startDate);
+
   return (
     <Container>
       <div>
         <div>
-          <p>{parseDate}</p>
+          <p>{localeDateString}</p>
         </div>
 
         <div>
           <p>{distance}km</p>
+          <p>{pace} ø Pace</p>
           <Link to="/runs_done" label="runs done">
             <button onClick={onFavoriteClick}>
               <img
@@ -119,5 +117,6 @@ BigRunCard.propTypes = {
   distance: PropTypes.number,
   runName: PropTypes.string,
   startDate: PropTypes.instanceOf(Date),
+  pace: PropTypes.number.isRequired,
 };
 export default BigRunCard;

@@ -8,6 +8,7 @@ import Button from "../Button/Button";
 import BottomNav from "../../components/BottomNav/BottomNav";
 import { useHistory } from "react-router-dom";
 import { postRun } from "../../api/runs";
+import DropdownPace from "../DropdownPace/DropdownPace";
 
 const RunSetupContainer = styled.div`
   height: 100vh;
@@ -52,6 +53,7 @@ export default function RunSetupPage() {
   const [distance, setDistance] = useState("");
   const [runName, setRunName] = useState("");
   const [startDate, setStartDate] = useState(() => new Date());
+  const [pace, onPaceChange] = useState("");
 
   const handleDistanceChange = (event) => {
     setDistance(event.target.value);
@@ -64,12 +66,13 @@ export default function RunSetupPage() {
   const handleDateChange = (newDate) => {
     setStartDate(newDate);
   };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const newRun = await postRun({ runName, distance, startDate });
+    const newRun = await postRun({ runName, distance, startDate, pace });
     history.push(`/runs/${newRun.id}`);
   };
-
+  console.log(pace);
   return (
     <>
       <AppHeader title={"Create Your Run"} />
@@ -79,7 +82,10 @@ export default function RunSetupPage() {
         <MapContainer>
           <Map />
         </MapContainer>
+
         <InputfieldsContainer onSubmit={handleSubmit}>
+          <DropdownPace pace={pace} onPaceChange={onPaceChange} />
+
           <Input
             onChange={handleDistanceChange}
             value={distance}

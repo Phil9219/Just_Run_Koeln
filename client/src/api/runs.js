@@ -20,7 +20,7 @@ export async function postRun(run) {
 }
 
 export async function searchForKm(distance) {
-  const response = await fetch(`/api/runs?distance=${distance}`);
+  const response = await fetch(`/api/runs?distance_lte=${distance}`);
   const runsByKm = await response.json();
   return runsByKm;
 }

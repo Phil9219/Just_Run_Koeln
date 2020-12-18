@@ -21,38 +21,37 @@ const ScrollContainer = styled.div`
 `;
 export default function ChooseYourRunPage() {
   const [runs, setRuns] = useState(null);
+  const [searchInputValue, setSearchInputValue] = useState("");
+
   useEffect(() => {
     async function fetchData() {
-      const newRuns = await getRuns();
-      setRuns(newRuns);
+      if (searchInputValue) {
+        console.log(typeof searchInputValue);
+        const filteredRuns = await searchForKm(searchInputValue);
+        setRuns(filteredRuns);
+      }
+      if (!searchInputValue) {
+        const newRuns = await getRuns();
+        setRuns(newRuns);
+      }
     }
     fetchData();
-  }, []);
-
-  async function handleTypeIn(event, searchValue) {
-    event.preventDefault();
-    if (searchValue) {
-      setRuns(await searchForKm(searchValue));
-    } else {
-      setRuns(await getRuns());
-    }
-  }
+  }, [searchInputValue]);
 
   return (
     <>
       <AppHeader title={"Choose Your Run"} />
       <ChooseRunContainer>
-        <Search onSubmit={handleTypeIn} />
+        <Search onChange={setSearchInputValue} value={searchInputValue} />
         <ScrollContainer>
           {runs?.map((run) => (
             <RunCard
-              key={id}
+              key={run.id}
               onFavoriteClick={() => alert("click")}
               isFavorite={true}
               {...run}
             />
           ))}
-          ;
         </ScrollContainer>
       </ChooseRunContainer>
       <BottomNav />

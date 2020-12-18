@@ -1,8 +1,6 @@
 import styled from "styled-components/macro";
 import PropTypes from "prop-types";
-import { useState } from "react";
 
-import { getRuns, searchForKm } from "../../api/runs";
 const Form = styled.form`
   display: flex;
   justify-content: center;
@@ -24,21 +22,14 @@ const Form = styled.form`
   }
 `;
 
-function Search({ onSubmit }) {
-  const [searchKm, setSearchKm] = useState();
-
-  function handleChange(event) {
-    setSearchKm(event.target.value);
-  }
-
+function Search({ onChange, value }) {
   return (
-    <Form onSubmit={(event) => onSubmit(event, searchKm)}>
+    <Form>
       <input
-        value={searchKm}
-        type="number"
+        value={value}
         step="any"
         autoComplete="off"
-        onChange={handleChange}
+        onChange={(e) => onChange(e.target.value)}
         placeholder=" Km 0.00"
       ></input>
     </Form>
@@ -48,5 +39,6 @@ function Search({ onSubmit }) {
 export default Search;
 
 Search.propTypes = {
-  onSubmit: PropTypes.func,
+  onChange: PropTypes.func,
+  value: PropTypes.string,
 };

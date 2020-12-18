@@ -4,7 +4,7 @@ import AppHeader from "../../components/AppHeader/AppHeader";
 import RunCard from "../../components/RunCard/RunCard";
 import BottomNav from "../../components/BottomNav/BottomNav";
 import Search from "../../components/Search/Search";
-import { getRuns, searchForKm } from "../../api/runs";
+import { deleteRunsById, getRuns, searchForKm } from "../../api/runs";
 import { id } from "date-fns/locale";
 import { ChooseRunContainer } from "../../components/PageContainer";
 
@@ -44,14 +44,18 @@ export default function ChooseYourRunPage() {
       <ChooseRunContainer>
         <Search onSubmit={handleTypeIn} />
         <ScrollContainer>
-          {runs?.map((run) => (
-            <RunCard
-              key={id}
-              onFavoriteClick={() => alert("click")}
-              isFavorite={true}
-              {...run}
-            />
-          ))}
+          {runs
+            ?.filter(
+              (run) => new Date(run.startDate).getTime() > new Date().getTime()
+            )
+            .map((run) => (
+              <RunCard
+                key={id}
+                onFavoriteClick={() => alert("click")}
+                isFavorite={true}
+                {...run}
+              />
+            ))}
           ;
         </ScrollContainer>
       </ChooseRunContainer>

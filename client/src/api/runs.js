@@ -24,3 +24,11 @@ export async function searchForKm(distance) {
   const runsByKm = await response.json();
   return runsByKm;
 }
+
+export async function deleteRunsById(id) {
+  const response = await fetch(`/api/runs/${id}`, {
+    method: "DELETE",
+  });
+  const deletedRun = await response.json();
+  return deletedRun;
+}

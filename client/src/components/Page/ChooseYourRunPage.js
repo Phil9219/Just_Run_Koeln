@@ -4,7 +4,7 @@ import AppHeader from "../../components/AppHeader/AppHeader";
 import RunCard from "../../components/RunCard/RunCard";
 import BottomNav from "../../components/BottomNav/BottomNav";
 import Search from "../../components/Search/Search";
-import { deleteRunsById, getRuns, searchForKm } from "../../api/runs";
+import { getRuns, searchForKm } from "../../api/runs";
 import { id } from "date-fns/locale";
 import { ChooseRunContainer } from "../../components/PageContainer";
 

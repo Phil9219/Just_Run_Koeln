@@ -49,6 +49,7 @@
   },
   "dependencies": {
     "express": "^4.17.1",
-    "json-server": "^0.16.3"
+    "json-server": "^0.16.3",
+    "mongodb": "^3.6.3"
   }
 }

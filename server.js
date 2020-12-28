@@ -1,5 +1,8 @@
 const express = require("express");
 const path = require("path");
+require("dotenv").config();
+
+const { getRuns } = require("./lib/getRuns");
 
 const { connect } = require("./lib/database");
 const app = express();
@@ -13,6 +16,17 @@ app.use(
 );
 
 // Handle React routing, return all requests to React app
+
+app.get("/api/runs", async (req, res) => {
+  try {
+    const allRuns = await getRuns();
+    res.json(allRuns);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Unexpected server error");
+  }
+});
+
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client/build", "index.html"));
 });

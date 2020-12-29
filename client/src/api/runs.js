@@ -10,13 +10,11 @@ export async function getRunsById(id) {
 }
 
 export async function postRun(run) {
-  const response = await fetch("/api/runs", {
+  await fetch("/api/runs/", {
     method: "POST",
     body: JSON.stringify(run),
     headers: { "Content-Type": "application/json" },
   });
-  const newRun = await response.json();
-  return newRun;
 }
 
 export async function searchForKm(distance) {

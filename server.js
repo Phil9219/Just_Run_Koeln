@@ -3,6 +3,7 @@ const path = require("path");
 require("dotenv").config();
 
 const { getRuns } = require("./lib/getRuns");
+const { postRun } = require("./lib/postRun");
 
 const { connect } = require("./lib/database");
 const app = express();
@@ -17,10 +18,23 @@ app.use(
 
 // Handle React routing, return all requests to React app
 
-app.get("/api/runs", async (req, res) => {
+app.get("/api/runs/", async (req, res) => {
   try {
     const allRuns = await getRuns();
     res.json(allRuns);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Unexpected server error");
+  }
+});
+
+app.post("/api/runs/", async (req, res) => {
+  const run = req.body;
+  console.log(req.body);
+
+  try {
+    await postRun(run);
+    res.send("Update sucessfull");
   } catch (error) {
     console.error(error);
     res.status(500).send("Unexpected server error");
@@ -35,10 +49,9 @@ async function run() {
   console.log("Connecting to database...");
   await connect(process.env.DB_USER_PASSWORD, process.env.DB_NAME);
   console.log("Connected to database 🎉");
+
+  app.listen(port, () => {
+    console.log(`Server listening at http://localhost:${port}`);
+  });
 }
-
-app.listen(port, () => {
-  console.log(`Server listening at http://localhost:${port}`);
-});
-
 run();

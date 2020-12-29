@@ -107,6 +107,7 @@ export default function Map({ showHeader = true }) {
     <>
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
+        customMapStyle={MapStyle}
         zoom={12}
         center={center}
         options={options}

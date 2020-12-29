@@ -49,7 +49,7 @@ const MapContainer = styled.div`
 `;
 
 export default function RunSetupPage() {
-  const history = useHistory();
+  // const history = useHistory();
   const [distance, setDistance] = useState("");
   const [runName, setRunName] = useState("");
   const [startDate, setStartDate] = useState(() => new Date());
@@ -69,10 +69,13 @@ export default function RunSetupPage() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const newRun = await postRun({ runName, distance, startDate, pace });
-    history.push(`/runs/${newRun.id}`);
+
+    const run = { runName, distance, startDate, pace };
+    await postRun(run);
+
+    // history.push(`/runs/${run.id}`);
   };
-  console.log(pace);
+
   return (
     <>
       <AppHeader title={"Create Your Run"} />

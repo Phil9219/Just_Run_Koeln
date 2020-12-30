@@ -6,8 +6,10 @@ const path = require("path");
 
 const { getRuns } = require("./lib/getRuns");
 const { postRun } = require("./lib/postRun");
+const { getRunsById } = require("./lib/getRunsbyId");
 
 const { connect } = require("./lib/database");
+
 const app = express();
 app.use(express.json());
 const port = process.env.PORT || 3001;
@@ -24,6 +26,16 @@ app.use(
 app.get("/api/runs/", async (req, res) => {
   try {
     const allRuns = await getRuns();
+    res.json(allRuns);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Unexpected server error");
+  }
+});
+app.get("/api/runs/:_id/", async (req, res) => {
+  const { _id } = req.params;
+  try {
+    const allRuns = await getRunsById(_id);
     res.json(allRuns);
   } catch (error) {
     console.error(error);

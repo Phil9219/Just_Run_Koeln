@@ -79,7 +79,7 @@ const RunCard = ({
   startDate,
   distance,
   runName,
-  id,
+  _id,
   pace,
 }) => {
   const parseDate = new Date(startDate).toLocaleString("de-DE", {
@@ -93,13 +93,13 @@ const RunCard = ({
   return (
     <Container>
       <div>
-        <Link to={`/runs/${id}`}>
+        <Link to={`/runs/${_id}`}>
           <div>
             <p>{parseDate}</p>
           </div>
         </Link>
         <div>
-          <Link to={`/runs/${id}`}>
+          <Link to={`/runs/${_id}`}>
             <p>{distance}km</p>
             <p>{pace} ø Pace</p>
           </Link>
@@ -127,7 +127,7 @@ RunCard.propTypes = {
   onFavoriteClick: PropTypes.func,
   distance: PropTypes.number.isRequired,
   runName: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
+  _id: PropTypes.string.isRequired,
   startDate: PropTypes.instanceOf(Date),
   pace: PropTypes.number.isRequired,
 };

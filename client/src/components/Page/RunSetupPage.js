@@ -6,7 +6,7 @@ import Calendar from "../Calendar/Calendar";
 import Map from "../Map/Map";
 import Button from "../Button/Button";
 import BottomNav from "../../components/BottomNav/BottomNav";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import { postRun } from "../../api/runs";
 import DropdownPace from "../DropdownPace/DropdownPace";
 

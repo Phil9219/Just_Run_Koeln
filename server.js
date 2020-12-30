@@ -1,13 +1,19 @@
-const express = require("express");
-const path = require("path");
 require("dotenv").config();
+
+const express = require("express");
+const bodyParser = require("body-parser");
+
+const path = require("path");
 
 const { getRuns } = require("./lib/getRuns");
 const { postRun } = require("./lib/postRun");
 
 const { connect } = require("./lib/database");
 const app = express();
+app.use(express.json());
 const port = process.env.PORT || 3001;
+
+app.use(bodyParser.json());
 
 // Serve any static files
 app.use(express.static(path.join(__dirname, "client/build")));

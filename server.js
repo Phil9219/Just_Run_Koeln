@@ -7,6 +7,7 @@ const path = require("path");
 const { getRuns } = require("./lib/getRuns");
 const { postRun } = require("./lib/postRun");
 const { getRunsById } = require("./lib/getRunsbyId");
+const { searchForKm } = require("./lib/searchForKm");
 
 const { connect } = require("./lib/database");
 
@@ -55,6 +56,18 @@ app.post("/api/runs/", async (req, res) => {
     res.status(500).send("Unexpected server error");
   }
 });
+
+app.get("/api/runs/:distance/"),
+  async (req, res) => {
+    const { distance } = req.params;
+    try {
+      const allRuns = await searchForKm(distance);
+      res.json(allRuns);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Unexpected server error");
+    }
+  };
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client/build", "index.html"));

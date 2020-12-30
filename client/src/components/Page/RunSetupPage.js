@@ -6,7 +6,7 @@ import Calendar from "../Calendar/Calendar";
 import Map from "../Map/Map";
 import Button from "../Button/Button";
 import BottomNav from "../../components/BottomNav/BottomNav";
-// import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { postRun } from "../../api/runs";
 import DropdownPace from "../DropdownPace/DropdownPace";
 
@@ -49,7 +49,7 @@ const MapContainer = styled.div`
 `;
 
 export default function RunSetupPage() {
-  // const history = useHistory();
+  const history = useHistory();
   const [distance, setDistance] = useState("");
   const [runName, setRunName] = useState("");
   const [startDate, setStartDate] = useState(() => new Date());
@@ -70,10 +70,9 @@ export default function RunSetupPage() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const run = { runName, distance, startDate, pace };
-    await postRun(run);
-
-    // history.push(`/runs/${run.id}`);
+    const newRun = await postRun({ runName, distance, startDate, pace });
+    console.log(newRun);
+    history.push(`/runs/${newRun}`);
   };
 
   return (

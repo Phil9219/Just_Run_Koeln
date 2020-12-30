@@ -1,7 +1,6 @@
 require("dotenv").config();
 
 const express = require("express");
-const bodyParser = require("body-parser");
 
 const path = require("path");
 
@@ -12,8 +11,6 @@ const { connect } = require("./lib/database");
 const app = express();
 app.use(express.json());
 const port = process.env.PORT || 3001;
-
-app.use(bodyParser.json());
 
 // Serve any static files
 app.use(express.static(path.join(__dirname, "client/build")));
@@ -36,11 +33,11 @@ app.get("/api/runs/", async (req, res) => {
 
 app.post("/api/runs/", async (req, res) => {
   const run = req.body;
-  console.log(req.body);
 
   try {
-    await postRun(run);
-    res.send("Update sucessfull");
+    const insertResult = await postRun(run);
+    const newRunId = insertResult.insertedId;
+    res.status(200).json(newRunId);
   } catch (error) {
     console.error(error);
     res.status(500).send("Unexpected server error");

@@ -1,5 +1,5 @@
 export async function getRuns() {
-  const response = await fetch("/api/runs");
+  const response = await fetch("/api/runs/");
   const runs = await response.json();
   return runs;
 }
@@ -10,11 +10,15 @@ export async function getRunsById(id) {
 }
 
 export async function postRun(run) {
-  await fetch("/api/runs/", {
+  console.log(run);
+  const response = await fetch("/api/runs/", {
     method: "POST",
     body: JSON.stringify(run),
     headers: { "Content-Type": "application/json" },
   });
+  const newRun = await response.json();
+  console.log(newRun);
+  return newRun;
 }
 
 export async function searchForKm(distance) {

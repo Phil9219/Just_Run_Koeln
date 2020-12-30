@@ -44,14 +44,18 @@ export default function ChooseYourRunPage() {
       <ChooseRunContainer>
         <Search onSubmit={handleTypeIn} />
         <ScrollContainer>
-          {runs?.map((run) => (
-            <RunCard
-              key={id}
-              onFavoriteClick={() => alert("click")}
-              isFavorite={true}
-              {...run}
-            />
-          ))}
+          {runs
+            ?.filter(
+              (run) => new Date(run.startDate).getTime() > new Date().getTime()
+            )
+            .map((run) => (
+              <RunCard
+                key={id}
+                onFavoriteClick={() => alert("click")}
+                isFavorite={true}
+                {...run}
+              />
+            ))}
           ;
         </ScrollContainer>
       </ChooseRunContainer>

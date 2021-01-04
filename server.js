@@ -57,17 +57,16 @@ app.post("/api/runs/", async (req, res) => {
   }
 });
 
-app.get("/api/runs/:distance/"),
-  async (req, res) => {
-    const { distance } = req.params;
-    try {
-      const allRuns = await searchForKm(distance);
-      res.json(allRuns);
-    } catch (error) {
-      console.error(error);
-      res.status(500).send("Unexpected server error");
-    }
-  };
+app.get("/api/runs/distance/:distance/", async (req, res) => {
+  const { distance } = req.params;
+  try {
+    const allRuns = await searchForKm(distance);
+    res.json(allRuns);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Unexpected server error");
+  }
+});
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client/build", "index.html"));

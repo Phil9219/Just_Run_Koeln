@@ -39,7 +39,7 @@ function Search({ onSubmit }) {
         step="any"
         autoComplete="off"
         onChange={handleChange}
-        placeholder=" Km 0.00"
+        placeholder="Km 0.00"
       ></input>
     </Form>
   );

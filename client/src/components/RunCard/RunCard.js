@@ -12,6 +12,7 @@ const Container = styled.div`
   width: 100%;
   height: 350px;
   padding: 16px;
+  margin-top: 10%;
   margin-bottom: 16px;
   border-radius: 15px;
   border: 2px solid var(--secondary-color);

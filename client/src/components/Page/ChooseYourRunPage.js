@@ -21,6 +21,7 @@ const ScrollContainer = styled.div`
 `;
 export default function ChooseYourRunPage() {
   const [runs, setRuns] = useState(null);
+
   useEffect(() => {
     async function fetchData() {
       const newRuns = await getRuns();
@@ -44,14 +45,22 @@ export default function ChooseYourRunPage() {
       <ChooseRunContainer>
         <Search onSubmit={handleTypeIn} />
         <ScrollContainer>
-          {runs?.map((run) => (
-            <RunCard
-              key={id}
-              onFavoriteClick={() => alert("click")}
-              isFavorite={true}
-              {...run}
-            />
-          ))}
+          {runs
+            ?.filter(
+              (run) => new Date(run.startDate).getTime() > new Date().getTime()
+            )
+            // ?.sort(
+            //   (run) => new Date(run.startDate).getTime() > new Date().getTime()
+            // )
+
+            .map((run) => (
+              <RunCard
+                key={id}
+                onFavoriteClick={() => alert("click")}
+                isFavorite={true}
+                {...run}
+              />
+            ))}
           ;
         </ScrollContainer>
       </ChooseRunContainer>

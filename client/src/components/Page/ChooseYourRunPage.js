@@ -34,6 +34,7 @@ export default function ChooseYourRunPage() {
     event.preventDefault();
     if (searchValue) {
       setRuns(await searchForKm(searchValue));
+      console.log(searchValue);
     } else {
       setRuns(await getRuns());
     }
@@ -49,9 +50,6 @@ export default function ChooseYourRunPage() {
             ?.filter(
               (run) => new Date(run.startDate).getTime() > new Date().getTime()
             )
-            // ?.sort(
-            //   (run) => new Date(run.startDate).getTime() > new Date().getTime()
-            // )
 
             .map((run) => (
               <RunCard

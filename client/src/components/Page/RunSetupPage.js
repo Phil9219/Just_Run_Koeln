@@ -70,8 +70,13 @@ export default function RunSetupPage() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const newRun = await postRun({ runName, distance, startDate, pace });
-    console.log(newRun);
+    const newRun = await postRun({
+      runName,
+      distance: parseFloat(distance),
+      startDate,
+      pace,
+    });
+
     history.push(`/runs/${newRun}`);
   };
 

@@ -2,7 +2,6 @@ import styled from "styled-components/macro";
 import PropTypes from "prop-types";
 import { useState } from "react";
 
-import { getRuns, searchForKm } from "../../api/runs";
 const Form = styled.form`
   display: flex;
   justify-content: center;

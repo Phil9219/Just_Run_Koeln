@@ -32,14 +32,18 @@ export default function RunsDonePage() {
       <AppHeader title={"Your Runs"} />
       <RunsDoneContainer>
         <ScrollContainer>
-          {runs?.map((run) => (
-            <RunCard
-              key={id}
-              onFavoriteClick={() => alert("click")}
-              isFavorite={true}
-              {...run}
-            />
-          ))}
+          {runs
+            ?.filter(
+              (run) => new Date(run.startDate).getTime() > new Date().getTime()
+            )
+            .map((run) => (
+              <RunCard
+                key={id}
+                onFavoriteClick={() => alert("click")}
+                isFavorite={true}
+                {...run}
+              />
+            ))}
           ;
         </ScrollContainer>
       </RunsDoneContainer>

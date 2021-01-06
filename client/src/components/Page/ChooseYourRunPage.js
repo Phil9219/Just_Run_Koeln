@@ -21,6 +21,7 @@ const ScrollContainer = styled.div`
 `;
 export default function ChooseYourRunPage() {
   const [runs, setRuns] = useState(null);
+
   useEffect(() => {
     async function fetchData() {
       const newRuns = await getRuns();
@@ -48,6 +49,7 @@ export default function ChooseYourRunPage() {
             ?.filter(
               (run) => new Date(run.startDate).getTime() > new Date().getTime()
             )
+
             .map((run) => (
               <RunCard
                 key={id}

@@ -12,6 +12,7 @@ const Container = styled.div`
   width: 100%;
   height: 350px;
   padding: 16px;
+  margin-top: 10%;
   margin-bottom: 16px;
   border-radius: 15px;
   border: 2px solid var(--secondary-color);
@@ -79,7 +80,7 @@ const RunCard = ({
   startDate,
   distance,
   runName,
-  id,
+  _id,
   pace,
 }) => {
   const parseDate = new Date(startDate).toLocaleString("de-DE", {
@@ -93,13 +94,13 @@ const RunCard = ({
   return (
     <Container>
       <div>
-        <Link to={`/runs/${id}`}>
+        <Link to={`/runs/${_id}`}>
           <div>
             <p>{parseDate}</p>
           </div>
         </Link>
         <div>
-          <Link to={`/runs/${id}`}>
+          <Link to={`/runs/${_id}`}>
             <p>{distance}km</p>
             <p>{pace} ø Pace</p>
           </Link>
@@ -127,7 +128,7 @@ RunCard.propTypes = {
   onFavoriteClick: PropTypes.func,
   distance: PropTypes.number.isRequired,
   runName: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
+  _id: PropTypes.string.isRequired,
   startDate: PropTypes.instanceOf(Date),
   pace: PropTypes.number.isRequired,
 };

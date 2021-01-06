@@ -7,15 +7,15 @@ import { useParams } from "react-router-dom";
 import { CreatedRunContainer } from "../../components/PageContainer";
 
 export default function CreatedRunPage() {
-  const { id } = useParams();
-  const [run, setRun] = useState(id);
+  const { _id } = useParams();
+  const [run, setRun] = useState(_id);
   useEffect(() => {
     async function fetchData() {
-      const runDetails = await getRunsById(id);
+      const runDetails = await getRunsById(_id);
       setRun(runDetails);
     }
     fetchData();
-  }, [id]);
+  }, [_id]);
 
   return (
     <>

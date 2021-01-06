@@ -8,7 +8,7 @@ const { getRuns } = require("./lib/getRuns");
 const { postRun } = require("./lib/postRun");
 const { getRunsById } = require("./lib/getRunsbyId");
 const { searchForKm } = require("./lib/searchForKm");
-// const { getFavRuns } = require("./lib/getFavRuns");
+
 const { connect } = require("./lib/database");
 
 const app = express();
@@ -43,28 +43,6 @@ app.get("/api/runs/:_id/", async (req, res) => {
     res.status(500).send("Unexpected server error");
   }
 });
-
-// app.get("/api/runs/:isFavorite/", async (req, res) => {
-//   const { isFavorite } = req.params;
-//   try {
-//     const favRuns = await getFavRuns(isFavorite);
-//     res.json(favRuns);
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).send("Unexpected server error");
-//   }
-// });
-
-// app.patch("/api/runs/:isFavorite/", async (req, res) => {
-//   try {
-//     const addFav = await patchFavRuns(isFavorite);
-//     const newRunFav = insertResult.insertedFav;
-//     res.status(200).json(newRunFav);
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).send("Unexpected server error");
-//   }
-// });
 
 app.post("/api/runs/", async (req, res) => {
   const run = req.body;

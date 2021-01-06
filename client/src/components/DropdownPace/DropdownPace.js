@@ -21,9 +21,6 @@ const SelectPace = ({ pace, onPaceChange }) => {
 
   return (
     <Select onChange={handlePacePick} value={pace}>
-      <option value="2.5">2.0 min/km</option>
-      <option value="2.5">2.5 min/km</option>
-      <option value="3.0">3.0 min/km</option>
       <option value="3.5">3.5 min/km</option>
       <option value="4.0">4.0 min/km</option>
       <option value="4.5">4.5 min/km</option>

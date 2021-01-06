@@ -8,7 +8,6 @@ import { CreatedRunContainer } from "../../components/PageContainer";
 
 export default function CreatedRunPage() {
   const { _id } = useParams();
-  console.log(_id);
   const [run, setRun] = useState(_id);
   useEffect(() => {
     async function fetchData() {

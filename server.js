@@ -37,7 +37,7 @@ app.get("/api/runs/:_id/", async (req, res) => {
   const { _id } = req.params;
   try {
     const allRuns = await getRunsById(_id);
-    res.json(allRuns);
+    res.status(200).json(allRuns);
   } catch (error) {
     console.error(error);
     res.status(500).send("Unexpected server error");

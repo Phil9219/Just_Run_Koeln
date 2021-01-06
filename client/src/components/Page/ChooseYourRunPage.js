@@ -34,7 +34,6 @@ export default function ChooseYourRunPage() {
     event.preventDefault();
     if (searchValue) {
       setRuns(await searchForKm(searchValue));
-      console.log(searchValue);
     } else {
       setRuns(await getRuns());
     }

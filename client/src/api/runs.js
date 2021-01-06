@@ -17,7 +17,6 @@ export async function postRun(run) {
     headers: { "Content-Type": "application/json" },
   });
   const newRun = await response.json();
-  console.log(newRun);
   return newRun;
 }
 

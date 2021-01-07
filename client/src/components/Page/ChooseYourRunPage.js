@@ -49,8 +49,14 @@ export default function ChooseYourRunPage() {
 
   async function handleClickFavorites(id) {
     let isFavorite = null;
-    isFavorite = JSON.parse(localStorage.getItem("runs_done")) || [];
-
+    try {
+      isFavorite = JSON.parse(localStorage.getItem("runs_done")) || [];
+    } catch (error) {
+      isFavorite = [];
+    }
+    if (isFavorite.includes(id)) {
+      return;
+    }
     const newFavorites = [...isFavorite, id];
     localStorage.setItem("runs_done", JSON.stringify(newFavorites));
   }

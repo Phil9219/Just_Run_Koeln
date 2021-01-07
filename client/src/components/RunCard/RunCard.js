@@ -4,6 +4,7 @@ import CheckHookFilled from "../../assets/checkHookFilled.svg";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import Map from "../Map/Map";
+import { useState } from "react";
 
 const Container = styled.div`
   display: flex;
@@ -92,9 +93,9 @@ const RunCard = ({
   });
 
   // Use in onClick
-  // const fill = CheckHookFilled;
-  // const clear = CheckHookEmpty;
-  // const [favRun, setFavRun] = useState(clear);
+  const fill = CheckHookFilled;
+  const clear = CheckHookEmpty;
+  const [favRun, setFavRun] = useState(clear);
 
   return (
     <Container>
@@ -107,10 +108,10 @@ const RunCard = ({
         <div>
           <Link to={`/runs/${_id}`}>
             <p>{distance}km</p>
-            <p>{pace} ø Pace</p>
+            <p>{pace}ø Pace</p>
           </Link>
 
-          <button onClick={() => onFavoriteClick(_id)}>
+          <button onClick={() => onFavoriteClick(_id)} setFavRun={fill}>
             <img
               id={onFavoriteClick}
               src={isFavorite ? CheckHookFilled : CheckHookEmpty}

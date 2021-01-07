@@ -23,12 +23,6 @@ const ScrollContainer = styled.div`
 `;
 export default function ChooseYourRunPage() {
   const [runs, setRuns] = useState(null);
-  // const [currentFavorits, setCurrentFavorits] = useState(
-  //   JSON.parse(localStorage.getItem("favorites")) || []
-  // );
-  // const fill = CheckHookFilled;
-  // const clear = CheckHookEmpty;
-  // const [favRun, setFavRun] = useState(clear);
 
   useEffect(() => {
     async function fetchData() {
@@ -47,20 +41,6 @@ export default function ChooseYourRunPage() {
     }
   }
 
-  async function handleClickFavorites(id) {
-    let isFavorite = null;
-    try {
-      isFavorite = JSON.parse(localStorage.getItem("runs_done")) || [];
-    } catch (error) {
-      isFavorite = [];
-    }
-    if (isFavorite.includes(id)) {
-      return;
-    }
-    const newFavorites = [...isFavorite, id];
-    localStorage.setItem("runs_done", JSON.stringify(newFavorites));
-  }
-
   return (
     <>
       <AppHeader title={"Choose Your Run"} />
@@ -73,11 +53,7 @@ export default function ChooseYourRunPage() {
             )
 
             .map((run) => (
-              <RunCard
-                key={id}
-                onFavoriteClick={handleClickFavorites}
-                {...run}
-              />
+              <RunCard key={id} {...run} />
             ))}
           ;
         </ScrollContainer>

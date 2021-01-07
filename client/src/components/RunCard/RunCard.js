@@ -76,7 +76,7 @@ const MapContainer = styled.div`
 `;
 
 const RunCard = ({
-  isFavorite,
+  localStorageIsFavorite = false,
   onFavoriteClick,
   startDate,
   distance,
@@ -92,10 +92,29 @@ const RunCard = ({
     minute: "2-digit",
   });
 
-  // Use in onClick
-  const fill = CheckHookFilled;
-  const clear = CheckHookEmpty;
-  const [favRun, setFavRun] = useState(clear);
+  const [favorites, setFavorites] = useState(
+    JSON.parse(localStorage.getItem("runs_done")) || []
+  );
+
+  const [isFavorite, setIsFavorite] = useState(favorites.includes(_id));
+
+  function changeIsFavorite() {
+    setIsFavorite(!isFavorite);
+  }
+
+  async function handleClickFavorites(id) {
+    let isFavorite = null;
+
+    isFavorite = JSON.parse(localStorage.getItem("runs_done")) || [];
+
+    if (isFavorite.includes(id)) {
+      isFavorite = JSON.parse(localStorage.removeItem("runs_done")) || [];
+
+      return;
+    }
+    const newFavorites = [...isFavorite, id];
+    localStorage.setItem("runs_done", JSON.stringify(newFavorites));
+  }
 
   return (
     <Container>
@@ -111,7 +130,12 @@ const RunCard = ({
             <p>{pace}ø Pace</p>
           </Link>
 
-          <button onClick={() => onFavoriteClick(_id)} setFavRun={fill}>
+          <button
+            onClick={() => {
+              handleClickFavorites(_id);
+              changeIsFavorite();
+            }}
+          >
             <img
               id={onFavoriteClick}
               src={isFavorite ? CheckHookFilled : CheckHookEmpty}
@@ -130,7 +154,7 @@ const RunCard = ({
 };
 
 RunCard.propTypes = {
-  isFavorite: PropTypes.bool,
+  localStorageIsFavorite: PropTypes.bool,
   onFavoriteClick: PropTypes.func,
   distance: PropTypes.number.isRequired,
   runName: PropTypes.string.isRequired,

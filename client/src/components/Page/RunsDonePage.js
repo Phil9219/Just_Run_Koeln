@@ -28,20 +28,6 @@ export default function RunsDonePage() {
     fetchData();
   }, []);
 
-  function handleClickFavorites() {
-    let isFavorites = true;
-    console.log(isFavorites);
-    try {
-      isFavorites = JSON.parse(localStorage.getItem("runs_done")) || [];
-    } catch (error) {
-      console.error(error);
-      isFavorites = false;
-    }
-    if (isFavorites.includes(id)) {
-      console.log(isFavorites);
-      return;
-    }
-  }
   return (
     <>
       <AppHeader title={"Your Runs"} />
@@ -52,11 +38,7 @@ export default function RunsDonePage() {
               (run) => new Date(run.startDate).getTime() > new Date().getTime()
             )
             .map((run) => (
-              <RunCard
-                key={id}
-                onFavoriteClick={() => handleClickFavorites}
-                {...run}
-              />
+              <RunCard key={id} {...run} />
             ))}
           ;
         </ScrollContainer>

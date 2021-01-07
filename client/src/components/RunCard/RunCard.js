@@ -91,6 +91,11 @@ const RunCard = ({
     minute: "2-digit",
   });
 
+  // Use in onClick
+  // const fill = CheckHookFilled;
+  // const clear = CheckHookEmpty;
+  // const [favRun, setFavRun] = useState(clear);
+
   return (
     <Container>
       <div>
@@ -104,14 +109,14 @@ const RunCard = ({
             <p>{distance}km</p>
             <p>{pace} ø Pace</p>
           </Link>
-          <Link to="/runs_done" label="runs done">
-            <button onClick={onFavoriteClick}>
-              <img
-                src={isFavorite ? CheckHookFilled : CheckHookEmpty}
-                alt="Check Hook"
-              />
-            </button>
-          </Link>
+
+          <button onClick={() => onFavoriteClick(_id)}>
+            <img
+              id={onFavoriteClick}
+              src={isFavorite ? CheckHookFilled : CheckHookEmpty}
+              alt="Check Hook"
+            />
+          </button>
         </div>
       </div>
       <p>{runName}</p>

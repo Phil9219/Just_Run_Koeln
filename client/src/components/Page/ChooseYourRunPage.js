@@ -7,6 +7,8 @@ import Search from "../../components/Search/Search";
 import { getRuns, searchForKm } from "../../api/runs";
 import { id } from "date-fns/locale";
 import { ChooseRunContainer } from "../../components/PageContainer";
+// import CheckHookEmpty from "../../assets/checkHookEmpty.svg";
+// import CheckHookFilled from "../../assets/checkHookFilled.svg";
 
 const ScrollContainer = styled.div`
   display: flex;
@@ -21,6 +23,12 @@ const ScrollContainer = styled.div`
 `;
 export default function ChooseYourRunPage() {
   const [runs, setRuns] = useState(null);
+  // const [currentFavorits, setCurrentFavorits] = useState(
+  //   JSON.parse(localStorage.getItem("favorites")) || []
+  // );
+  // const fill = CheckHookFilled;
+  // const clear = CheckHookEmpty;
+  // const [favRun, setFavRun] = useState(clear);
 
   useEffect(() => {
     async function fetchData() {
@@ -39,6 +47,14 @@ export default function ChooseYourRunPage() {
     }
   }
 
+  async function handleClickFavorites(id) {
+    let isFavorite = null;
+    isFavorite = JSON.parse(localStorage.getItem("runs_done")) || [];
+
+    const newFavorites = [...isFavorite, id];
+    localStorage.setItem("runs_done", JSON.stringify(newFavorites));
+  }
+
   return (
     <>
       <AppHeader title={"Choose Your Run"} />
@@ -53,8 +69,7 @@ export default function ChooseYourRunPage() {
             .map((run) => (
               <RunCard
                 key={id}
-                onFavoriteClick={() => alert("click")}
-                isFavorite={true}
+                onFavoriteClick={handleClickFavorites}
                 {...run}
               />
             ))}

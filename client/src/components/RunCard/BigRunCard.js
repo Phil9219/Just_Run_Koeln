@@ -92,7 +92,7 @@ const BigRunCard = ({
 
         <div>
           <p>{distance}km</p>
-          <p>{pace} ø Pace</p>
+          <p>{pace}ø Pace</p>
           <Link to="/runs_done" label="runs done">
             <button onClick={onFavoriteClick}>
               <img

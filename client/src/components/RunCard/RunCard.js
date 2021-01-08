@@ -102,18 +102,30 @@ const RunCard = ({
     setIsFavorite(!isFavorite);
   }
 
-  async function handleClickFavorites(id) {
-    let isFavorite = null;
+  function handleClickFavorites(_id) {
+    let currentFavorites = null;
 
-    isFavorite = JSON.parse(localStorage.getItem("runs_done")) || [];
+    currentFavorites = JSON.parse(localStorage.getItem("runs_done")) || [];
 
-    if (isFavorite.includes(id)) {
-      isFavorite = JSON.parse(localStorage.removeItem("runs_done")) || [];
+    const isFavorite = currentFavorites.includes(_id);
 
-      return;
+    if (isFavorite) {
+      currentFavorites = currentFavorites.filter(
+        (favorites) => favorites !== _id
+      );
+    } else {
+      currentFavorites.push(_id);
     }
-    const newFavorites = [...isFavorite, id];
-    localStorage.setItem("runs_done", JSON.stringify(newFavorites));
+
+    // if (isFavorite.includes(_id)) {
+    //   isFavorite =
+    //     JSON.parse(localStorage.removeItem("runs_done", JSON.stringify(_id))) ||
+    //     [];
+
+    //   return;
+    // }
+    // const newFavorites = [...isFavorite, _id];
+    localStorage.setItem("runs_done", JSON.stringify(currentFavorites));
   }
 
   return (

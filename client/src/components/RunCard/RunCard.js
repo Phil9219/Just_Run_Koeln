@@ -117,14 +117,6 @@ const RunCard = ({
       currentFavorites.push(_id);
     }
 
-    // if (isFavorite.includes(_id)) {
-    //   isFavorite =
-    //     JSON.parse(localStorage.removeItem("runs_done", JSON.stringify(_id))) ||
-    //     [];
-
-    //   return;
-    // }
-    // const newFavorites = [...isFavorite, _id];
     localStorage.setItem("runs_done", JSON.stringify(currentFavorites));
   }
 

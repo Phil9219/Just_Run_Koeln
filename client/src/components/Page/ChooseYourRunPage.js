@@ -7,8 +7,6 @@ import Search from "../../components/Search/Search";
 import { getRuns, searchForKm } from "../../api/runs";
 import { id } from "date-fns/locale";
 import { ChooseRunContainer } from "../../components/PageContainer";
-// import CheckHookEmpty from "../../assets/checkHookEmpty.svg";
-// import CheckHookFilled from "../../assets/checkHookFilled.svg";
 
 const ScrollContainer = styled.div`
   display: flex;

@@ -19,10 +19,15 @@ const ScrollContainer = styled.div`
   }
 `;
 export default function RunsDonePage() {
+  const [favoriteRuns, setFavoriteRuns] = useState(
+    JSON.parse(localStorage.getItem("runs_done")) || []
+  );
+
   const [runs, setRuns] = useState(null);
   useEffect(() => {
     async function fetchData() {
       const newRuns = await getRuns();
+      console.log(newRuns);
       setRuns(newRuns);
     }
     fetchData();
@@ -34,9 +39,8 @@ export default function RunsDonePage() {
       <RunsDoneContainer>
         <ScrollContainer>
           {runs
-            ?.filter(
-              (run) => new Date(run.startDate).getTime() > new Date().getTime()
-            )
+
+            ?.filter((run) => favoriteRuns.includes(run._id))
             .map((run) => (
               <RunCard key={id} {...run} />
             ))}

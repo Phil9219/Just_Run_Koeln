@@ -5,6 +5,8 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import Map from "../Map/Map";
 import toLocaleDateString from "../../utils/localDateString";
+import { useState } from "react";
+
 const Container = styled.div`
   height: 600px;
   width: 100%;
@@ -74,36 +76,77 @@ const MapContainer = styled.div`
 `;
 
 const BigRunCard = ({
-  isFavorite,
+  localStorageIsFavorite = false,
   onFavoriteClick,
+  startDate,
   distance,
   runName,
-  startDate,
+  _id,
   pace,
 }) => {
-  const localeDateString = toLocaleDateString(startDate);
+  const parseDate = new Date(startDate).toLocaleString("de-DE", {
+    weekday: "short",
+    day: "2-digit",
+    month: "short",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+
+  const [favorites, setFavorites] = useState(
+    JSON.parse(localStorage.getItem("runs_done")) || []
+  );
+
+  const [isFavorite, setIsFavorite] = useState(favorites.includes(_id));
+
+  function changeIsFavorite() {
+    setIsFavorite(!isFavorite);
+  }
+
+  function handleClickFavorites(_id) {
+    let currentFavorites = null;
+
+    currentFavorites = JSON.parse(localStorage.getItem("runs_done")) || [];
+
+    const isFavorite = currentFavorites.includes(_id);
+
+    if (isFavorite) {
+      currentFavorites = currentFavorites.filter(
+        (favorites) => favorites !== _id
+      );
+    } else {
+      currentFavorites.push(_id);
+    }
+
+    localStorage.setItem("runs_done", JSON.stringify(currentFavorites));
+  }
 
   return (
     <Container>
       <div>
         <div>
-          <p>{localeDateString}</p>
+          <p>{parseDate}</p>
         </div>
 
         <div>
           <p>{distance}km</p>
           <p>{pace}ø Pace</p>
-          <Link to="/runs_done" label="runs done">
-            <button onClick={onFavoriteClick}>
-              <img
-                src={isFavorite ? CheckHookFilled : CheckHookEmpty}
-                alt="Check Hook"
-              />
-            </button>
-          </Link>
+
+          <button
+            onClick={() => {
+              handleClickFavorites(_id);
+              changeIsFavorite();
+            }}
+          >
+            <img
+              id={onFavoriteClick}
+              src={isFavorite ? CheckHookFilled : CheckHookEmpty}
+              alt="Check Hook"
+            />
+          </button>
         </div>
       </div>
       <p>{runName}</p>
+
       <MapContainer>
         <Map showHeader={false} />
       </MapContainer>
@@ -112,11 +155,60 @@ const BigRunCard = ({
 };
 
 BigRunCard.propTypes = {
-  isFavorite: PropTypes.bool,
+  localStorageIsFavorite: PropTypes.bool,
   onFavoriteClick: PropTypes.func,
-  distance: PropTypes.number,
-  runName: PropTypes.string,
+  distance: PropTypes.number.isRequired,
+  runName: PropTypes.string.isRequired,
+  _id: PropTypes.string.isRequired,
   startDate: PropTypes.instanceOf(Date),
   pace: PropTypes.number.isRequired,
 };
 export default BigRunCard;
+
+// const BigRunCard = ({
+//   isFavorite,
+//   onFavoriteClick,
+//   distance,
+//   runName,
+//   startDate,
+//   pace,
+// }) => {
+//   const localeDateString = toLocaleDateString(startDate);
+
+//   return (
+//     <Container>
+//       <div>
+//         <div>
+//           <p>{localeDateString}</p>
+//         </div>
+
+//         <div>
+//           <p>{distance}km</p>
+//           <p>{pace}ø Pace</p>
+//           <Link>
+//             <button onClick={onFavoriteClick}>
+//               <img
+//                 src={isFavorite ? CheckHookFilled : CheckHookEmpty}
+//                 alt="Check Hook"
+//               />
+//             </button>
+//           </Link>
+//         </div>
+//       </div>
+//       <p>{runName}</p>
+//       <MapContainer>
+//         <Map showHeader={false} />
+//       </MapContainer>
+//     </Container>
+//   );
+// };
+
+// BigRunCard.propTypes = {
+//   isFavorite: PropTypes.bool,
+//   onFavoriteClick: PropTypes.func,
+//   distance: PropTypes.number,
+//   runName: PropTypes.string,
+//   startDate: PropTypes.instanceOf(Date),
+//   pace: PropTypes.number.isRequired,
+// };
+// export default BigRunCard;

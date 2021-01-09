@@ -113,7 +113,7 @@ export default function Map({ showHeader = true }) {
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
         customMapStyle={MapStyle}
-        zoom={15}
+        zoom={13}
         center={center}
         options={options}
         onClick={onMapClick}

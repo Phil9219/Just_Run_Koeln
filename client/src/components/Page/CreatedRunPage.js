@@ -5,6 +5,11 @@ import BottomNav from "../../components/BottomNav/BottomNav";
 import { getRunsById } from "../../api/runs";
 import { useParams } from "react-router-dom";
 import { CreatedRunContainer } from "../../components/PageContainer";
+import styled from "styled-components/macro";
+
+const Page = styled.div`
+  margin: 0 15px;
+`;
 
 export default function CreatedRunPage() {
   const { _id } = useParams();
@@ -20,9 +25,11 @@ export default function CreatedRunPage() {
   return (
     <>
       <AppHeader title={"Run"} />
-      <CreatedRunContainer>
-        <BigRunCard isFavorite={true} {...run}></BigRunCard>
-      </CreatedRunContainer>
+      <Page>
+        <CreatedRunContainer>
+          <BigRunCard isFavorite={true} {...run}></BigRunCard>
+        </CreatedRunContainer>
+      </Page>
       <BottomNav />
     </>
   );

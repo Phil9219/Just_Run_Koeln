@@ -41,7 +41,7 @@ const InputfieldsContainer = styled.form`
 `;
 
 const MapContainer = styled.div`
-  height: 400px;
+  height: 300px;
   width: 100%;
   border: 2px solid var(--secondary-color);
   display: flex;

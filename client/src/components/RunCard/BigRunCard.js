@@ -2,13 +2,12 @@ import styled from "styled-components/macro";
 import CheckHookEmpty from "../../assets/checkHookEmpty.svg";
 import CheckHookFilled from "../../assets/checkHookFilled.svg";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 import Map from "../Map/Map";
 import toLocaleDateString from "../../utils/localDateString";
 import { useState } from "react";
 
 const Container = styled.div`
-  height: 600px;
+  height: 465px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -24,40 +23,8 @@ const Container = styled.div`
   div {
     display: flex;
     justify-content: space-between;
-
+    align-items: center;
     gap: 16px;
-
-    div {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 5px;
-
-      p {
-        margin: 0;
-        padding: 0;
-      }
-    }
-    div:nth-child(2) {
-      font-size: 2.5rem;
-      display: flex;
-      flex-direction: row;
-      column-gap: 40px;
-
-      button {
-        background: none;
-        border: none;
-        height: 25px;
-        width: 25px;
-        padding: 0;
-
-        img {
-          margin: auto;
-          object-fit: cover;
-          width: 100%;
-          height: 100%;
-        }
-      }
-    }
   }
   p {
     display: flex;
@@ -66,8 +33,50 @@ const Container = styled.div`
   }
 `;
 
+const DateContainer = styled.div`
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+
+  p {
+    margin: 0;
+    padding: 0;
+  }
+`;
+
+const RunInfoContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+
+  ;
+ 
+p:first-of-type {
+  font-size: 2rem;
+}
+
+
+    button {
+      background: none;
+      border: none;
+      height: 25px;
+      width: 25px;
+      padding: 0;
+
+
+      img {
+        object-fit: cover;
+        height: 100%;
+        
+        
+      }
+    }
+  }
+`;
+
 const MapContainer = styled.div`
-  height: 450px;
+  height: 350px;
   width: 100%;
   border-radius: 5px;
   border: 2px solid var(--secondary-color);
@@ -123,11 +132,11 @@ const BigRunCard = ({
   return (
     <Container>
       <div>
-        <div>
+        <DateContainer>
           <p>{parseDate}</p>
-        </div>
+        </DateContainer>
 
-        <div>
+        <RunInfoContainer>
           <p>{distance}km</p>
           <p>{pace}ø Pace</p>
 
@@ -143,7 +152,7 @@ const BigRunCard = ({
               alt="Check Hook"
             />
           </button>
-        </div>
+        </RunInfoContainer>
       </div>
       <p>{runName}</p>
 

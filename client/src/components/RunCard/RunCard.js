@@ -13,8 +13,7 @@ const Container = styled.div`
   width: 100%;
   height: 350px;
   padding: 16px;
-  margin-top: 10%;
-  margin-bottom: 16px;
+  margin-top: 5%;
   border-radius: 15px;
   border: 2px solid var(--secondary-color);
   color: var(--secondary-color);
@@ -38,7 +37,7 @@ const Container = styled.div`
       }
     }
     div:nth-child(2) {
-      font-size: 2.5rem;
+      font-size: 1.1rem;
       display: flex;
       flex-direction: row;
       column-gap: 40px;

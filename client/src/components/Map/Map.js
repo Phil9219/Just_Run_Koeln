@@ -22,6 +22,8 @@ import {
 } from "@reach/combobox";
 import { formatRelative } from "date-fns";
 
+require("dotenv").config();
+
 const MapHeader = styled.div`
   width: 100%;
   display: flex;
@@ -71,8 +73,11 @@ const options = {
 };
 
 export default function Map({ showHeader = true }) {
+  const apikey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
+
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+    googleMapsApiKey: apikey,
+
     libraries,
   });
 

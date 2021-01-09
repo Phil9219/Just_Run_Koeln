@@ -74,7 +74,7 @@ const options = {
 
 export default function Map({ showHeader = true }) {
   const apikey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
-
+  console.log(apikey);
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: apikey,
 

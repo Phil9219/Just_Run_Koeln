@@ -109,10 +109,10 @@ const mapStyle = [
         color: "#000000",
       },
       {
-        lightness: 29,
+        lightness: 14,
       },
       {
-        weight: 0.2,
+        weight: 0.4,
       },
     ],
   },
@@ -124,7 +124,7 @@ const mapStyle = [
         color: "#000000",
       },
       {
-        lightness: 18,
+        lightness: 10,
       },
     ],
   },
@@ -136,7 +136,7 @@ const mapStyle = [
         color: "#000000",
       },
       {
-        lightness: 16,
+        lightness: 8,
       },
     ],
   },
@@ -160,7 +160,7 @@ const mapStyle = [
         color: "#000000",
       },
       {
-        lightness: 17,
+        lightness: 50,
       },
     ],
   },

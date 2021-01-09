@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import AppHeader from "../AppHeader/AppHeader";
-import BigRunCard from "../RunCard/BigRunCard";
+import RunCard from "../RunCard/RunCard";
 import BottomNav from "../../components/BottomNav/BottomNav";
 import { getRunsById } from "../../api/runs";
 import { useParams } from "react-router-dom";
@@ -27,7 +27,7 @@ export default function CreatedRunPage() {
       <AppHeader title={"Run"} />
       <Page>
         <CreatedRunContainer>
-          <BigRunCard isFavorite={true} {...run}></BigRunCard>
+          <RunCard big {...run}></RunCard>
         </CreatedRunContainer>
       </Page>
       <BottomNav />

@@ -51,12 +51,7 @@ export default function ChooseYourRunPage() {
             )
 
             .map((run) => (
-              <RunCard
-                key={id}
-                onFavoriteClick={() => alert("click")}
-                isFavorite={true}
-                {...run}
-              />
+              <RunCard key={id} {...run} />
             ))}
           ;
         </ScrollContainer>

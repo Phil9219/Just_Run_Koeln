@@ -4,6 +4,7 @@ import CheckHookFilled from "../../assets/checkHookFilled.svg";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import Map from "../Map/Map";
+import { useState } from "react";
 
 const Container = styled.div`
   display: flex;
@@ -75,7 +76,7 @@ const MapContainer = styled.div`
 `;
 
 const RunCard = ({
-  isFavorite,
+  localStorageIsFavorite = false,
   onFavoriteClick,
   startDate,
   distance,
@@ -91,6 +92,34 @@ const RunCard = ({
     minute: "2-digit",
   });
 
+  const [favorites, setFavorites] = useState(
+    JSON.parse(localStorage.getItem("runs_done")) || []
+  );
+
+  const [isFavorite, setIsFavorite] = useState(favorites.includes(_id));
+
+  function changeIsFavorite() {
+    setIsFavorite(!isFavorite);
+  }
+
+  function handleClickFavorites(_id) {
+    let currentFavorites = null;
+
+    currentFavorites = JSON.parse(localStorage.getItem("runs_done")) || [];
+
+    const isFavorite = currentFavorites.includes(_id);
+
+    if (isFavorite) {
+      currentFavorites = currentFavorites.filter(
+        (favorites) => favorites !== _id
+      );
+    } else {
+      currentFavorites.push(_id);
+    }
+
+    localStorage.setItem("runs_done", JSON.stringify(currentFavorites));
+  }
+
   return (
     <Container>
       <div>
@@ -102,16 +131,21 @@ const RunCard = ({
         <div>
           <Link to={`/runs/${_id}`}>
             <p>{distance}km</p>
-            <p>{pace} ø Pace</p>
+            <p>{pace}ø Pace</p>
           </Link>
-          <Link to="/runs_done" label="runs done">
-            <button onClick={onFavoriteClick}>
-              <img
-                src={isFavorite ? CheckHookFilled : CheckHookEmpty}
-                alt="Check Hook"
-              />
-            </button>
-          </Link>
+
+          <button
+            onClick={() => {
+              handleClickFavorites(_id);
+              changeIsFavorite();
+            }}
+          >
+            <img
+              id={onFavoriteClick}
+              src={isFavorite ? CheckHookFilled : CheckHookEmpty}
+              alt="Check Hook"
+            />
+          </button>
         </div>
       </div>
       <p>{runName}</p>
@@ -124,7 +158,7 @@ const RunCard = ({
 };
 
 RunCard.propTypes = {
-  isFavorite: PropTypes.bool,
+  localStorageIsFavorite: PropTypes.bool,
   onFavoriteClick: PropTypes.func,
   distance: PropTypes.number.isRequired,
   runName: PropTypes.string.isRequired,

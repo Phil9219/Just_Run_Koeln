@@ -19,27 +19,31 @@ const ScrollContainer = styled.div`
   }
 `;
 export default function RunsDonePage() {
+  const [favoriteRuns, setFavoriteRuns] = useState(
+    JSON.parse(localStorage.getItem("runs_done")) || []
+  );
+
   const [runs, setRuns] = useState(null);
   useEffect(() => {
     async function fetchData() {
       const newRuns = await getRuns();
+      console.log(newRuns);
       setRuns(newRuns);
     }
     fetchData();
   }, []);
+
   return (
     <>
       <AppHeader title={"Your Runs"} />
       <RunsDoneContainer>
         <ScrollContainer>
-          {runs?.map((run) => (
-            <RunCard
-              key={id}
-              onFavoriteClick={() => alert("click")}
-              isFavorite={true}
-              {...run}
-            />
-          ))}
+          {runs
+
+            ?.filter((run) => favoriteRuns.includes(run._id))
+            .map((run) => (
+              <RunCard key={id} {...run} />
+            ))}
           ;
         </ScrollContainer>
       </RunsDoneContainer>

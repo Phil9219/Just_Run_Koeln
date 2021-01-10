@@ -9,16 +9,14 @@ const Form = styled.form`
   input {
     height: 40px;
     width: 70%;
-    margin-top: 15px;
     border: solid 2px var(--secondary-color);
-    background: none;
+    background-color: var(--primary-color);
     color: var(--secondary-color);
     font-family: "Heiti SC", adobe-heiti-std, sans-serif;
     font-size: 1rem;
     font-weight: 700;
     display: flex;
     text-align: center;
-    position: fixed;
     top: 80px;
   }
 `;

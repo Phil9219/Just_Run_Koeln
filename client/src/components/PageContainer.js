@@ -11,6 +11,9 @@ export const CreatedRunContainer = styled(PageContainer)`
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  
+  }
 `;
 
 export const RunsDoneContainer = styled(PageContainer)`
@@ -19,4 +22,8 @@ export const RunsDoneContainer = styled(PageContainer)`
 
 export const ChooseRunContainer = styled(PageContainer)`
   margin-bottom: 30%;
+
+  input {
+    background-color: var(--primary-color: #2b2b2b;)
+    z-index:100000;
 `;

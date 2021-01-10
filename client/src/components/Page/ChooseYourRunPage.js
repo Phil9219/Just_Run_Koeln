@@ -16,7 +16,7 @@ const ScrollContainer = styled.div`
   gap: 15px;
 
   a {
-    text-decoration: none;
+    text-decoration: red;
   }
 `;
 export default function ChooseYourRunPage() {
@@ -43,8 +43,8 @@ export default function ChooseYourRunPage() {
     <>
       <AppHeader title={"Choose Your Run"} />
       <ChooseRunContainer>
-        <Search onSubmit={handleTypeIn} />
         <ScrollContainer>
+          <Search onSubmit={handleTypeIn} />
           {runs
             ?.filter(
               (run) => new Date(run.startDate).getTime() > new Date().getTime()

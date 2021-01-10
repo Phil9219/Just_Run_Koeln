@@ -22,6 +22,8 @@ import {
 } from "@reach/combobox";
 import { formatRelative } from "date-fns";
 
+require("dotenv").config();
+
 const MapHeader = styled.div`
   width: 100%;
   display: flex;
@@ -42,7 +44,7 @@ const MapHeader = styled.div`
     text-align: center;
 
     ::placeholder {
-      color: var(--inputfield-color);
+      color: var(--primary-color: #2b2b2b);
     }
   }
 
@@ -71,8 +73,11 @@ const options = {
 };
 
 export default function Map({ showHeader = true }) {
+  const apikey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
+  console.log(apikey);
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+    googleMapsApiKey: apikey,
+
     libraries,
   });
 
@@ -97,7 +102,7 @@ export default function Map({ showHeader = true }) {
 
   const panTo = React.useCallback(({ lat, lng }) => {
     mapRef.current.panTo({ lat, lng });
-    mapRef.current.setZoom(14);
+    mapRef.current.setZoom(16);
   }, []);
 
   if (loadError) return "Error loading maps";
@@ -108,7 +113,7 @@ export default function Map({ showHeader = true }) {
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
         customMapStyle={MapStyle}
-        zoom={12}
+        zoom={13}
         center={center}
         options={options}
         onClick={onMapClick}
@@ -190,7 +195,7 @@ function Search({ panTo }) {
   } = usePlacesAutocomplete({
     requestOptions: {
       location: { lat: () => 50.937531, lng: () => 6.960279 },
-      radius: 200 * 1000,
+      radius: 700 * 1000,
     },
   });
 
@@ -214,7 +219,7 @@ function Search({ panTo }) {
           setValue(e.target.value);
         }}
         disabled={!ready}
-        placeholder="Choose StartingPoint"
+        placeholder="Choose Start"
       />
       <ComboboxPopover>
         <ComboboxList>

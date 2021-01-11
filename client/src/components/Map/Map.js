@@ -44,7 +44,7 @@ const MapHeader = styled.div`
     text-align: center;
 
     ::placeholder {
-      color: var(--primary-color: #2b2b2b);
+      color: var(--primary-color);
     }
   }
 

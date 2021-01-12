@@ -1,4 +1,5 @@
 import React from "react";
+
 import PropTypes from "prop-types";
 import styled from "styled-components/macro";
 import {
@@ -21,8 +22,6 @@ import {
   ComboboxOption,
 } from "@reach/combobox";
 import { formatRelative } from "date-fns";
-
-require("dotenv").config();
 
 const MapHeader = styled.div`
   width: 100%;

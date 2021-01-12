@@ -1,6 +1,6 @@
 import React from "react";
 import GlobalStyle from "../src/GlobalStyle";
-
+require("dotenv").config();
 export const decorators = [
   (Story) => (
     <>

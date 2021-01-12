@@ -5,4 +5,12 @@ module.exports = {
     "@storybook/addon-essentials",
     "@storybook/preset-create-react-app",
   ],
+  webpackFinal: (config) => {
+    return {
+      ...config,
+      node: {
+        fs: "empty",
+      },
+    };
+  },
 };

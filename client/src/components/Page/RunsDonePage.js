@@ -19,7 +19,7 @@ const ScrollContainer = styled.div`
   }
 `;
 export default function RunsDonePage() {
-  const [favoriteRuns, setFavoriteRuns] = useState(
+  const [favoriteRuns] = useState(
     JSON.parse(localStorage.getItem("runs_done")) || []
   );
 

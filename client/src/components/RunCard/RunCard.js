@@ -33,7 +33,7 @@ const RunCard = ({
     minute: "2-digit",
   });
 
-  const [favorites, setFavorites] = useState(
+  const [favorites] = useState(
     JSON.parse(localStorage.getItem("runs_done")) || []
   );
 
@@ -155,33 +155,28 @@ const RunInfoContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  
-a{
-  text-decoration:none;
-}
-p:first-of-type {
-  font-size: 2rem;
-}
 
-p {
-  color: var(--secondary-color);
-}
+  a {
+    text-decoration: none;
+  }
+  p:first-of-type {
+    font-size: 2rem;
+  }
 
+  p {
+    color: var(--secondary-color);
+  }
 
-button {
-  background: none;
-  border: none;
-  height: 25px;
-  width: 25px;
-  padding: 0;
+  button {
+    background: none;
+    border: none;
+    height: 25px;
+    width: 25px;
+    padding: 0;
 
-
-img {
-  object-fit: cover;
-  height: 100%;
-  
-        
-      }
+    img {
+      object-fit: cover;
+      height: 100%;
     }
   }
 `;

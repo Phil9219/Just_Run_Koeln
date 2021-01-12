@@ -1,12 +1,13 @@
 import React from "react";
 import GlobalStyle from "../src/GlobalStyle";
-require("dotenv").config();
+import { BrowserRouter as Router } from "react-router-dom";
+
 export const decorators = [
   (Story) => (
-    <>
+    <Router>
       <GlobalStyle />
       <Story />
-    </>
+    </Router>
   ),
 ];
 export const parameters = {

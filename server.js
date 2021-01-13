@@ -6,7 +6,7 @@ const path = require("path");
 
 const { getRuns } = require("./lib/getRuns");
 const { postRun } = require("./lib/postRun");
-const { getRunsById } = require("./lib/getRunsbyId");
+const { getRunsById } = require("./lib/getRunsById");
 const { searchForKm } = require("./lib/searchForKm");
 
 const { connect } = require("./lib/database");

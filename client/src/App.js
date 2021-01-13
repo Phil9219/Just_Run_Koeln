@@ -21,7 +21,7 @@ function App() {
         <GlobalStyle />
 
         <Switch>
-          <Route exact path="/splash">
+          <Route exact path="/">
             {page ? <SplashPage /> : <LoginPage />}
           </Route>
 
